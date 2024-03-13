@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <style>
+        /* Styles for the entire page */
+        body {
+            font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+    	    font-weight: 300;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth; /* Smooth scrolling behavior */
+            background-color: #121212; /* Dark background color */
+            color: #fff; /* Light text color */
+        }
+        /* Styles for sections */
+        section {
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .right-aligned-section {
+            display: flex; /* Maintain flex layout for other elements */
+            flex-direction: column;
+            justify-content: center;
+            /* Text content will be centered but image will float right */
+        }
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        /* Navigation styles */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(18, 18, 18, 0.8); /* Dark navigation background with transparency */
+            z-index: 1000; /* Ensure it's above other content */
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        nav a:hover {
+            background-color: rgba(18, 18, 18, 0.5); /* Darker background color on hover */
+        }
+        /* Contact form styles */
+        .contact-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #212121; /* Darker background color for form inputs */
+            color: #fff;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease;
+        }
+        .contact-form input[type="text"]:focus,
+        .contact-form input[type="email"]:focus,
+        .contact-form textarea:focus {
+            background-color: #333; /* Darker background color on focus */
+        }
+        .contact-form input[type="submit"] {
+            background-color: #007bff; /* Button color */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .contact-form input[type="submit"]:hover {
+            background-color: #0056b3; /* Darker button color on hover */
+        }
+        .contact-form label {
+            font-weight: bold;
+        }
+        /* Link styles */
+        .contact-links {
+            list-style: none;
+            padding: 0;
+        }
+        .contact-links li {
+            margin-bottom: 10px;
+        }
+        .contact-links a {
+            color: #007bff; /* Link color */
+            text-decoration: none;
+            transition: color 0.3s ease; /* Smooth transition for color change */
+        }
+        .contact-links a:hover {
+            color: #0056b3; /* Change the link color on hover */
+        }
+	.image_right{
+	    float: right !important;
+	}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <section id="home" class="right-aligned-section" style="text-align: right;">
+    	<h2>Home</h2>
+    	<div class="image_right" style="max-width: 50%; float: right;">
+   	     <img src="laptop.jpg" alt="Home Image" style="width: 100%; height: auto;">
+   	</div>
+  	  <!-- Home content -->
+    </section>
+
+    <section id="about">
+        <h2>About</h2>
+        <p>I am a web developer passionate about creating beautiful and functional websites. My skills include HTML, CSS, JavaScript, and more.</p>
+    </section>
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <p>Check out some of my recent projects:</p>
+        <ul>
+            <li>Project 1</li>
+            <li>Project 2</li>
+            <li>Project 3</li>
+        </ul>
+    </section>
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>You can reach out to me through the following channels:</p>
+        <ul class="contact-links">
+            <li><a href="https://www.linkedin.com/in/yourusername" target="_blank">LinkedIn</a></li>
+            <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
+        </ul>
+        <div class="contact-form">
+            <h3>Contact Form</h3>
+            <form action="https://formspree.io/your_email_here" method="POST">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br>
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4" required></textarea><br>
+                <input type="submit" value="Send Message">
+            </form>
+        </div>
+    </section>
+    <script>
+        // Smooth scrolling effect when clicking on navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

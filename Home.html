@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web</title>
+    <!-- Font import -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Parisienne&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster&display=swap">
+    <!--done-->
+    <style>
+        /* Styles for the entire page */
+        body {
+            font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+            font-weight: 300;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            /* Smooth scrolling behavior */
+            background-color: #231e1f;
+            /* Dark background color */
+            color: #fff;
+            /* Light text color */
+        }
+
+        section {
+            height: 66vh;
+            /* Full viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 42px;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        /* Navigation styles */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(18, 18, 18, 0.8);
+            /* Dark navigation background with transparency */
+            z-index: 1000;
+            /* Ensure it's above other content */
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+            transition: transform 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: rgba(18, 18, 18, 0.5);
+            /* Darker background color on hover */
+            /* font-weight: bold; */
+            transform: scale(1.2);
+        }
+
+        /* Contact form styles */
+        .contact-form {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 260px;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #3e3a3a92;
+            /* Darker background color for form inputs */
+            color: #fff;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form input[type="text"]:focus,
+        .contact-form input[type="email"]:focus,
+        .contact-form textarea:focus {
+            background-color: #333;
+            /* Darker background color on focus */
+        }
+
+        .contact-form input[type="submit"] {
+            background-color: #007bff;
+            /* Button color */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form input[type="submit"]:hover {
+            background-color: #0056b3;
+            /* Darker button color on hover */
+            font-weight: bold;
+        }
+
+        .contact-form label {
+            font-weight: bold;
+        }
+
+        /* Link styles */
+        .contact-links {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 20px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact-links li {
+            margin-bottom: 10px;
+        }
+
+        .contact-links a {
+            color: #2d87fd;
+            /* Link color */
+            text-decoration: none;
+            transition: color 0.3s ease;
+            /* Smooth transition for color change */
+            transition: scale 0.42s ease;
+        }
+
+        .contact-links img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            color: #2f94ff;
+            /* Change the link color on hover */
+            font-weight: bold;
+            transform: scale(1.2);
+        }
+
+        .contact-links img:hover {
+            transform: scale(1.2);
+        }
+
+        .image_right {
+            float: right !important;
+        }
+
+        .parallax {
+            /* The image used */
+            background-image: url("webb.PNG");
+
+            /* Set a specific height */
+            min-height: 420px;
+
+            /* Create the parallax scrolling effect */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .pac-man-container {
+            position: absolute;
+            /* Position relative to the footer */
+            bottom: 0;
+            /* Align to the bottom of the footer */
+            width: 100%;
+            /* Ensure full width */
+            text-align: center;
+            /* Center the .pac-man element horizontally */
+        }
+
+        .pac-man {
+            /* Set size */
+            width: 20%;
+            height: 20%;
+
+            /* Background properties */
+            background-image: url("pacmans.gif");
+            background-repeat: no-repeat;
+            background-size: contain;
+
+            /* Animation */
+            animation: movePacman 10s linear infinite;
+            /* Adjust duration and timing function */
+        }
+
+        .pac-man-small {
+            /* Set a specific height */
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 20%;
+            height: 20%;
+        }
+
+        @keyframes movePacman {
+            0% {
+                right: -20%;
+                /* Start off-screen */
+            }
+
+            100% {
+                right: 120%;
+                /* Move off-screen to the left */
+            }
+        }
+
+
+        @keyframes movePacman {
+            0% {
+                right: -20%;
+                /* Start off-screen */
+            }
+
+            100% {
+                right: 120%;
+                /* Move off-screen to the left */
+            }
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 100px;
+            font-family: 'Lobster', cursive;
+            margin-top: 0;
+            /* Remove the bottom margin */
+        }
+
+        @keyframes signatureAnimation {
+            0% {
+                transform: scale(1) rotate(0deg);
+                opacity: 0.2;
+            }
+
+            50% {
+                transform: scale(1.2) rotate(5deg);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        .footer p {
+            position: relative;
+            transition: color 0.42s ease, text-shadow 0.42s ease-in-out;
+            margin-top: 0;
+            /* Remove the bottom margin */
+
+        }
+
+        .footer p:hover {
+            color: hsl(189, 97%, 75%);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer p::after {
+            content: '';
+            position: absolute;
+            left: 35%;
+            /* Adjust the horizontal position of the wavy line */
+            bottom: -2px;
+            /* Adjust the distance of the underline from the text */
+            width: 30%;
+            /* Adjust the width of the wavy line */
+            height: 2px;
+            /* Adjust the height of the wavy line */
+            background-image: linear-gradient(to right, rgba(22, 86, 215, 0.626), rgba(14, 109, 193, 0.831),
+                    rgba(92, 160, 238, 0.831), rgba(92, 160, 238, 0.9), rgba(14, 109, 193, 0.831),
+                    rgba(22, 86, 215, 0.626));
+            /* Adjust the colors */
+            transition: background-image 0.42s ease;
+            /* Add transition for smooth color change */
+        }
+
+        .footer p:hover::after {
+            background-image: linear-gradient(to right, rgba(22, 86, 215, 0.9), rgba(14, 109, 193, 0.831),
+                    rgba(92, 160, 238, 0.9), rgba(92, 160, 238, 0.9), rgba(14, 109, 193, 0.831),
+                    rgba(22, 86, 215, 0.9));
+            /* Adjust the colors for the hover effect */
+        }
+
+        nav {
+            text-align: center;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-decoration: wavy lightblue;
+        }
+
+        /* CSS */
+        /* Base typewriter styles */
+        .typewriter {
+            overflow: hidden;
+            /* Ensures the content is not revealed until the animation */
+            border-right: .15em solid orange;
+            /* The typewriter cursor */
+            white-space: nowrap;
+            /* Keeps the content on a single line */
+            margin: 0 auto;
+            /* Gives that scrolling effect as the typing happens */
+            letter-spacing: .15em;
+            /* Adjust as needed */
+        }
+
+        /* The typing effect */
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+
+        /* The typewriter cursor effect */
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: orange;
+            }
+        }
+
+        /* Animation applied when start-typing class is added */
+        .typewriter.start-typing {
+            animation: typing 3.5s steps(42, end), blink-caret .75s step-end 3.5s forwards;
+            /* Adjust timing and steps as needed */
+        }
+
+        .wavy {
+            text-decoration: underline;
+            text-decoration-style: wavy;
+            text-decoration-color: rgb(52, 108, 228);
+            position: relative;
+            color: #FFA500;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('ab').addEventListener('click', function () {
+                // Show the typewriter element when the "About" navigation item is clicked
+                document.getElementById('typewriter').style.display = 'block';
+                // Trigger the typewriter animation when the "about" navigation item is clicked
+                document.querySelector('.typewriter').classList.add('start-typing');
+            });
+        });
+    </script>
+    <script>
+        var timeout; // Variable to store timeout reference
+
+        document.addEventListener('scroll', function (e) {
+            var aboutSection = document.getElementById('about');
+            var topViewport = window.pageYOffset;
+            var bottomViewport = topViewport + window.innerHeight;
+            var topAboutSection = aboutSection.offsetTop;
+            var bottomAboutSection = topAboutSection + aboutSection.offsetHeight;
+
+            // Check if about section is fully visible
+            if (topAboutSection >= topViewport && bottomAboutSection <= bottomViewport) {
+                console.log("About section is fully visible.");
+                // Clear previous timeout to prevent multiple triggers
+                clearTimeout(timeout);
+                // Set new timeout to trigger animation after a delay
+                timeout = setTimeout(function () {
+                    console.log("Starting typewriter animation.");
+                    document.getElementById('typewriter').style.display = 'block';
+                    document.querySelector('.typewriter').classList.add('start-typing');
+                }, 50); // Adjust delay duration (in milliseconds) as needed
+            } else {
+                console.log("About section is not fully visible.");
+                // Clear timeout if about section is no longer visible
+                clearTimeout(timeout);
+            }
+        });
+    </script>
+
+
+</head>
+
+<body>
+
+    <nav>
+        <a href="#home" onclick="scrollToTop()">Home</a>
+        <a href="#about" id="ab">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    </script>
+    <div class="parallax"></div>
+    <section id="about">
+        <h2 class="wavy">About Me</h2>
+        <div class="typewriter" id="typewriter" style="display: none;">
+            <p></p>
+            <p>I am a web developer passionate about creating beautiful and functional websites. </p>
+            <p>My skills include HTML, CSS, JavaScript, and more.</p>
+            <p>BSc in Computer Sciense</p>
+        </div>
+        <ul class="contact-links">
+            <li><a href="my_resume.pdf" target="_blank">my cv</a></li>
+        </ul>
+    </section>
+
+    <section id="portfolio">
+        <h2 class="wavy">Portfolio</h2>
+        <p>Check out some of my recent projects:</p>
+        <ul>
+            <li>Project 1</li>
+            <li>Project 2</li>
+            <li>Project 3</li>
+        </ul>
+    </section>
+    <section id="contact">
+        <h2 class="wavy">contact me</h2>
+        <!--<p>You can reach out to me through the following channels:</p>-->
+        <ul class="contact-links">
+            <li>
+                <a href="https://www.linkedin.com/in/tomer-zamir-" target="_blank"><img src="linkedin.png"
+                        alt="Linkedin"></a>
+                <a href="https://github.com/tomerzamir" target="_blank" style="margin-left: 10px;"><img src="github.png"
+                        alt="Linkedin"></a>
+            </li>
+        </ul>
+        <div class="contact-form">
+            <!--<h3>Contact Form</h3>-->
+            <form action="https://formspree.io/f/xdoqdplj" method="POST">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br>
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4" required></textarea><br>
+                <input type="submit" value="Send Message">
+            </form>
+        </div>
+    </section>
+    <!-- <div class="pac-man"></div> -->
+    <footer class="footer">
+        <img src="pacmans.gif" class="pac-man-small" alt="Pac-Man">
+        <p>ⓒ Designed by Tomer Zamir</p>
+    </footer>
+    <script>
+        // Smooth scrolling effect when clicking on navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                const offset = 100; // Adjust this value as needed
+                const targetTop = target.getBoundingClientRect().top + window.pageYOffset;
+                const finalOffset = targetTop - offset;
+                window.scrollTo({
+                    top: finalOffset,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+
+    </script>
+
+</body>
+
+</html>
