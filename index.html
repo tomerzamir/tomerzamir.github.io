@@ -59,8 +59,12 @@
                 font-size: 14px; /* Adjust font size for better readability */
             }
             .pacme img {
-                width: 50%; /* Adjust width as needed */
+                width: 30vw; /* Adjust width as needed */
                 height: auto; /* Maintain aspect ratio */
+            }
+            #myGIF {
+                width: 30vw;  /* Adjust the width as needed for mobiles */
+                height: auto;  /* Maintain aspect ratio */
             }
 
             /* Adjust size of about me section */
@@ -68,6 +72,11 @@
                 font-size: 16px; /* Adjust font size for better readability */
                 max-width: 90%; /* Limit maximum width of the about section */
                 margin: 0 auto; /* Center the about section */
+                max-height: 150px;  /* Adjust the height as needed */
+                overflow-y: scroll;  /* Add scrollbar if content overflows */
+            }
+            #about p {
+                font-size: 14px;  /* Adjust font size for mobiles */
             }
         }
 
@@ -297,9 +306,14 @@
         .typewriter {
             overflow: hidden; /* Ensures the content is not revealed until the animation */
             border-right: .15em solid orange; /* The typewriter cursor */
-            white-space: nowrap; /* Keeps the content on a single line */
+            /*white-space: nowrap; /* Keeps the content on a single line */
+            white-space: normal;
             margin: 0 auto; /* Gives that scrolling effect as the typing happens */
             letter-spacing: .15em; /* Adjust as needed */
+            display: inline-block;
+        }
+        .typewriter p {
+            display: inline-block; /* Ensure each paragraph stays together */
         }
 
         /* The typing effect */
