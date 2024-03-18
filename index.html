@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,20 +13,16 @@
         /* Styles for the entire page */
         body {
             font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
-            font-weight: 300;
+    	    font-weight: 300;
             margin: 0;
             padding: 0;
-            scroll-behavior: smooth;
-            /* Smooth scrolling behavior */
-            background-color: #231e1f;
-            /* Dark background color */
-            color: #fff;
-            /* Light text color */
+            scroll-behavior: smooth; /* Smooth scrolling behavior */
+            background-color: #231e1f; /* Dark background color */
+            color: #fff; /* Light text color */
         }
-
+        /* Styles for sections */
         section {
-            height: 66vh;
-            /* Full viewport height */
+            height: 66vh; /* Set a fixed height for all sections */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -35,24 +30,50 @@
             text-align: center;
             margin-bottom: 42px;
         }
+        
+        /* Adjustments for screens less than or equal to 600px wide */
+        @media only screen and (max-width: 600px) {
+            body {
+                font-size: 16px; /* Adjust font size for better readability */
+            }
+            nav {
+                padding: 10px 0; /* Increase padding for easier tapping */
+            }
+            nav a {
+                padding: 10px; /* Increase padding for easier tapping */
+                font-size: 16px; /* Adjust font size for better readability */
+            }
+            section {
+                height: auto; /* Remove fixed height for better content display */
+            }
+            .contact-form input[type="text"],
+            .contact-form input[type="email"],
+            .contact-form textarea {
+                width: 90%; /* Adjust input field width for smaller screens */
+                margin: 10px auto; /* Center input fields */
+            }
+            .contact-form input[type="submit"] {
+                width: 90%; /* Adjust button width for smaller screens */
+            }
+            .footer {
+                font-size: 14px; /* Adjust font size for better readability */
+            }
+        }
+
 
         h2 {
             font-size: 2em;
             margin-bottom: 20px;
         }
-
         /* Navigation styles */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(18, 18, 18, 0.8);
-            /* Dark navigation background with transparency */
-            z-index: 1000;
-            /* Ensure it's above other content */
+            background-color: rgba(18, 18, 18, 0.8); /* Dark navigation background with transparency */
+            z-index: 1000; /* Ensure it's above other content */
         }
-
         nav a {
             color: #fff;
             text-decoration: none;
@@ -61,20 +82,16 @@
             transition: background-color 0.3s ease;
             transition: transform 0.3s ease;
         }
-
         nav a:hover {
-            background-color: rgba(18, 18, 18, 0.5);
-            /* Darker background color on hover */
+            background-color: rgba(18, 18, 18, 0.5); /* Darker background color on hover */
             /* font-weight: bold; */
             transform: scale(1.2);
         }
-
         /* Contact form styles */
         .contact-form {
             max-width: 800px;
             margin: 0 auto;
         }
-
         .contact-form input[type="text"],
         .contact-form input[type="email"],
         .contact-form textarea {
@@ -83,23 +100,18 @@
             margin: 10px 0;
             border: none;
             border-radius: 5px;
-            background-color: #3e3a3a92;
-            /* Darker background color for form inputs */
+            background-color: #3e3a3a92; /* Darker background color for form inputs */
             color: #fff;
             box-sizing: border-box;
             transition: background-color 0.3s ease;
         }
-
         .contact-form input[type="text"]:focus,
         .contact-form input[type="email"]:focus,
         .contact-form textarea:focus {
-            background-color: #333;
-            /* Darker background color on focus */
+            background-color: #333; /* Darker background color on focus */
         }
-
         .contact-form input[type="submit"] {
-            background-color: #007bff;
-            /* Button color */
+            background-color: #007bff; /* Button color */
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -107,17 +119,13 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-
         .contact-form input[type="submit"]:hover {
-            background-color: #0056b3;
-            /* Darker button color on hover */
+            background-color: #0056b3; /* Darker button color on hover */
             font-weight: bold;
         }
-
         .contact-form label {
             font-weight: bold;
         }
-
         /* Link styles */
         .contact-links {
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -125,47 +133,37 @@
             list-style: none;
             padding: 0;
         }
-
         .contact-links li {
             margin-bottom: 10px;
         }
-
         .contact-links a {
-            color: #2d87fd;
-            /* Link color */
+            color: #2d87fd; /* Link color */
             text-decoration: none;
-            transition: color 0.3s ease;
-            /* Smooth transition for color change */
+            transition: color 0.3s ease; /* Smooth transition for color change */
             transition: scale 0.42s ease;
         }
-
         .contact-links img {
             width: 30px;
             height: 30px;
             transition: transform 0.3s ease;
         }
-
         .contact-links a:hover {
-            color: #2f94ff;
-            /* Change the link color on hover */
+            color: #2f94ff; /* Change the link color on hover */
             font-weight: bold;
             transform: scale(1.2);
         }
-
         .contact-links img:hover {
             transform: scale(1.2);
         }
-
-        .image_right {
+        .image_right{
             float: right !important;
         }
-
         .parallax {
             /* The image used */
-            background-image: url("kurzgesagt.jpg");
+            background-image: url("webb.PNG");
 
             /* Set a specific height */
-            min-height: 420px;
+            min-height: 420px; 
 
             /* Create the parallax scrolling effect */
             background-attachment: fixed;
@@ -175,14 +173,10 @@
         }
 
         .pac-man-container {
-            position: absolute;
-            /* Position relative to the footer */
-            bottom: 0;
-            /* Align to the bottom of the footer */
-            width: 100%;
-            /* Ensure full width */
-            text-align: center;
-            /* Center the .pac-man element horizontally */
+            position: absolute; /* Position relative to the footer */
+            bottom: 0; /* Align to the bottom of the footer */
+            width: 100%; /* Ensure full width */
+            text-align: center; /* Center the .pac-man element horizontally */
         }
 
         .pac-man {
@@ -196,10 +190,8 @@
             background-size: contain;
 
             /* Animation */
-            animation: movePacman 10s linear infinite;
-            /* Adjust duration and timing function */
+            animation: movePacman 10s linear infinite; /* Adjust duration and timing function */
         }
-
         .pac-man-small {
             /* Set a specific height */
             display: block;
@@ -209,61 +201,54 @@
             height: 20%;
         }
 
-        @keyframes movePacman {
-            0% {
-                right: -20%;
-                /* Start off-screen */
-            }
-
-            100% {
-                right: 120%;
-                /* Move off-screen to the left */
-            }
+        .pacme {
+            position: absolute;
+            width: 30%;
+            height: 40%;
+        }
+        .pacme img:hover {
+            animation: moveHorizontal 7s linear infinite;
         }
 
+        /* #myGIF {
+            position: absolute;
+            animation: moveHorizontal 7s linear infinite;
+            width: 30%;
+            height: 40%;
+        } */
 
-        @keyframes movePacman {
-            0% {
-                right: -20%;
-                /* Start off-screen */
-            }
+        @keyframes moveHorizontal {
+            0%, 100% { transform: translateX(100%); } /* Start and end at the right edge */
+            40% { transform: translateX(0%); } /* Stay at left edge for 1 second */
+            85% { transform: translateX(100%); } /* Move back to right edge over 1.5 seconds */
+        } 
 
-            100% {
-                right: 120%;
-                /* Move off-screen to the left */
-            }
-        }
-
-        .footer {
+        .footer{
             text-align: center;
             margin-top: 100px;
             font-family: 'Lobster', cursive;
-            margin-top: 0;
-            /* Remove the bottom margin */
+            margin-top: 0; /* Remove the bottom margin */
         }
 
         @keyframes signatureAnimation {
-            0% {
-                transform: scale(1) rotate(0deg);
-                opacity: 0.2;
-            }
-
-            50% {
-                transform: scale(1.2) rotate(5deg);
-                opacity: 0.5;
-            }
-
-            100% {
-                transform: scale(1) rotate(0deg);
-                opacity: 1;
-            }
+        0% {
+            transform: scale(1) rotate(0deg);
+            opacity: 0.2;
+        }
+        50% {
+            transform: scale(1.2) rotate(5deg);
+            opacity: 0.5;
+        }
+        100% {
+            transform: scale(1) rotate(0deg);
+            opacity: 1;
+        }
         }
 
         .footer p {
             position: relative;
             transition: color 0.42s ease, text-shadow 0.42s ease-in-out;
-            margin-top: 0;
-            /* Remove the bottom margin */
+            margin-top: 0; /* Remove the bottom margin */
 
         }
 
@@ -275,80 +260,54 @@
         .footer p::after {
             content: '';
             position: absolute;
-            left: 35%;
-            /* Adjust the horizontal position of the wavy line */
-            bottom: -2px;
-            /* Adjust the distance of the underline from the text */
-            width: 30%;
-            /* Adjust the width of the wavy line */
-            height: 2px;
-            /* Adjust the height of the wavy line */
-            background-image: linear-gradient(to right, rgba(22, 86, 215, 0.626), rgba(14, 109, 193, 0.831),
-                    rgba(92, 160, 238, 0.831), rgba(92, 160, 238, 0.9), rgba(14, 109, 193, 0.831),
-                    rgba(22, 86, 215, 0.626));
-            /* Adjust the colors */
-            transition: background-image 0.42s ease;
-            /* Add transition for smooth color change */
+            left: 35%; /* Adjust the horizontal position of the wavy line */
+            bottom: -2px; /* Adjust the distance of the underline from the text */
+            width: 30%; /* Adjust the width of the wavy line */
+            height: 2px; /* Adjust the height of the wavy line */
+            background-image: linear-gradient(to right, rgba(22, 86, 215, 0.626), rgba(14, 109, 193, 0.831), 
+            rgba(92, 160, 238, 0.831), rgba(92, 160, 238, 0.9), rgba(14, 109, 193, 0.831),
+            rgba(22, 86, 215, 0.626)); /* Adjust the colors */
+            transition: background-image 0.42s ease; /* Add transition for smooth color change */
         }
 
         .footer p:hover::after {
-            background-image: linear-gradient(to right, rgba(22, 86, 215, 0.9), rgba(14, 109, 193, 0.831),
-                    rgba(92, 160, 238, 0.9), rgba(92, 160, 238, 0.9), rgba(14, 109, 193, 0.831),
-                    rgba(22, 86, 215, 0.9));
-            /* Adjust the colors for the hover effect */
+            background-image: linear-gradient(to right, rgba(22, 86, 215, 0.9), rgba(14, 109, 193, 0.831), 
+                rgba(92, 160, 238, 0.9), rgba(92, 160, 238, 0.9), rgba(14, 109, 193, 0.831),
+                rgba(22, 86, 215, 0.9)); /* Adjust the colors for the hover effect */
         }
 
-        nav {
+        nav{
             text-align: center;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             text-decoration: wavy lightblue;
         }
-
         /* CSS */
         /* Base typewriter styles */
         .typewriter {
-            overflow: hidden;
-            /* Ensures the content is not revealed until the animation */
-            border-right: .15em solid orange;
-            /* The typewriter cursor */
-            white-space: nowrap;
-            /* Keeps the content on a single line */
-            margin: 0 auto;
-            /* Gives that scrolling effect as the typing happens */
-            letter-spacing: .15em;
-            /* Adjust as needed */
+            overflow: hidden; /* Ensures the content is not revealed until the animation */
+            border-right: .15em solid orange; /* The typewriter cursor */
+            white-space: nowrap; /* Keeps the content on a single line */
+            margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+            letter-spacing: .15em; /* Adjust as needed */
         }
 
         /* The typing effect */
         @keyframes typing {
-            from {
-                width: 0
-            }
-
-            to {
-                width: 100%
-            }
+            from { width: 0 }
+            to { width: 100% }
         }
 
         /* The typewriter cursor effect */
         @keyframes blink-caret {
-
-            from,
-            to {
-                border-color: transparent
-            }
-
-            50% {
-                border-color: orange;
-            }
+            from, to { border-color: transparent }
+            50% { border-color: orange; }
         }
 
         /* Animation applied when start-typing class is added */
         .typewriter.start-typing {
-            animation: typing 3.5s steps(42, end), blink-caret .75s step-end 3.5s forwards;
+            animation: typing 3.5s steps(42, end), blink-caret .75s step-end 3.5s forwards; 
             /* Adjust timing and steps as needed */
         }
-
         .wavy {
             text-decoration: underline;
             text-decoration-style: wavy;
@@ -356,10 +315,18 @@
             position: relative;
             color: #FFA500;
         }
+        #about{
+            margin-bottom: 0;
+        }
+        #portfolio{
+            margin-top: 0;
+        }
+
     </style>
+      <!-- Your JavaScript code -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            document.getElementById('ab').addEventListener('click', function () {
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('ab').addEventListener('click', function() {
                 // Show the typewriter element when the "About" navigation item is clicked
                 document.getElementById('typewriter').style.display = 'block';
                 // Trigger the typewriter animation when the "about" navigation item is clicked
@@ -383,7 +350,7 @@
                 // Clear previous timeout to prevent multiple triggers
                 clearTimeout(timeout);
                 // Set new timeout to trigger animation after a delay
-                timeout = setTimeout(function () {
+                timeout = setTimeout(function() {
                     console.log("Starting typewriter animation.");
                     document.getElementById('typewriter').style.display = 'block';
                     document.querySelector('.typewriter').classList.add('start-typing');
@@ -398,9 +365,8 @@
 
 
 </head>
-
 <body>
-
+    
     <nav>
         <a href="#home" onclick="scrollToTop()">Home</a>
         <a href="#about" id="ab">About</a>
@@ -409,9 +375,9 @@
     </nav>
     <script>
         function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: "smooth" });
+          window.scrollTo({ top: 0, behavior: "smooth" });
         }
-    </script>
+      </script>
     <div class="parallax"></div>
     <section id="about">
         <h2 class="wavy">About Me</h2>
@@ -422,10 +388,10 @@
             <p>BSc in Computer Sciense</p>
         </div>
         <ul class="contact-links">
-            <li><a href="my_resume.pdf" target="_blank">my cv</a></li>
+            <li><a href="BSc.pdf" target="_blank">my cv</a></li>
         </ul>
     </section>
-
+    
     <section id="portfolio">
         <h2 class="wavy">Portfolio</h2>
         <p>Check out some of my recent projects:</p>
@@ -440,10 +406,8 @@
         <!--<p>You can reach out to me through the following channels:</p>-->
         <ul class="contact-links">
             <li>
-                <a href="https://www.linkedin.com/in/tomer-zamir-" target="_blank"><img src="linkedin.png"
-                        alt="Linkedin"></a>
-                <a href="https://github.com/tomerzamir" target="_blank" style="margin-left: 10px;"><img src="github.png"
-                        alt="Linkedin"></a>
+                <a href="https://www.linkedin.com/in/tomer-zamir-" target="_blank"><img src="linkedin.png" alt="Linkedin"></a>
+                <a href="https://github.com/tomerzamir" target="_blank" style="margin-left: 10px;"><img src="github.png" alt="Linkedin"></a>
             </li>
         </ul>
         <div class="contact-form">
@@ -459,9 +423,11 @@
             </form>
         </div>
     </section>
-    <!-- <div class="pac-man"></div> -->
+    <section>
+        <img src="pacmans.gif" alt="Your GIF description" id="myGIF" class="pacme">
+      </section>
     <footer class="footer">
-        <img src="pacmans.gif" class="pac-man-small" alt="Pac-Man">
+        <!-- <img src="pacmans.gif" class="pac-man-small" alt="Pac-Man"> -->
         <p>ⓒ Designed by Tomer Zamir</p>
     </footer>
     <script>
@@ -479,10 +445,6 @@
                 });
             });
         });
-
-
     </script>
-
 </body>
-
 </html>
