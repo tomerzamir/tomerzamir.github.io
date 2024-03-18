@@ -180,7 +180,7 @@
         }
         .parallax {
             /* The image used */
-            background-image: url("webb.png");
+            background-image: url("webb.PNG");
 
             /* Set a specific height */
             min-height: 420px; 
@@ -353,52 +353,53 @@
 
     </style>
       <!-- Your JavaScript code -->
-    <script>
+      <script>
         document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('ab').addEventListener('click', function() {
-                // Show the typewriter element when the "About" navigation item is clicked
-                document.getElementById('typewriter').style.display = 'inline-block';
-                // Trigger the typewriter animation when the "about" navigation item is clicked
+            // Function to check if the device is a mobile
+            function isMobileDevice() {
+                return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            }
+    
+            // Function to start typewriter animation
+            function startTypewriterAnimation() {
+                document.getElementById('typewriter').style.display = 'block';
                 document.querySelector('.typewriter').classList.add('start-typing');
+            }
+    
+            // Check if the device is mobile
+            if (isMobileDevice()) {
+                // If it's a mobile device, start the animation immediately
+                startTypewriterAnimation();
+            }
+    
+            var timeout; // Variable to store timeout reference
+    
+            document.addEventListener('scroll', function (e) {
+                var aboutSection = document.getElementById('about');
+                var topViewport = window.pageYOffset;
+                var bottomViewport = topViewport + window.innerHeight;
+                var topAboutSection = aboutSection.offsetTop;
+                var bottomAboutSection = topAboutSection + aboutSection.offsetHeight;
+    
+                // Check if about section is fully visible
+                if (topAboutSection >= topViewport && bottomAboutSection <= bottomViewport) {
+                    console.log("About section is fully visible.");
+                    // Clear previous timeout to prevent multiple triggers
+                    clearTimeout(timeout);
+                    // Set new timeout to trigger animation after a delay
+                    timeout = setTimeout(function() {
+                        console.log("Starting typewriter animation.");
+                        startTypewriterAnimation(); // Use the function to start animation
+                    }, 50); // Adjust delay duration (in milliseconds) as needed
+                } else {
+                    console.log("About section is not fully visible.");
+                    // Clear timeout if about section is no longer visible
+                    clearTimeout(timeout);
+                }
             });
         });
     </script>
-    <script>
-        var timeout; // Variable to store timeout reference
-
-        document.addEventListener('scroll', function (e) {
-            var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-            var aboutSection = document.getElementById('about');
-            var topViewport = window.pageYOffset;
-            var bottomViewport = topViewport + window.innerHeight;
-            var topAboutSection = aboutSection.offsetTop;
-            var bottomAboutSection = topAboutSection + aboutSection.offsetHeight;
-
-            // Check if about section is fully visible
-            if (topAboutSection >= topViewport && bottomAboutSection <= bottomViewport) {
-                console.log("About section is fully visible.");
-                // Clear previous timeout to prevent multiple triggers
-                clearTimeout(timeout);
-                // Set new timeout to trigger animation after a delay
-                timeout = setTimeout(function() {
-                    console.log("Starting typewriter animation.");
-                    document.getElementById('typewriter').style.display = 'block';
-                    document.querySelector('.typewriter').classList.add('start-typing');
-                }, 50); // Adjust delay duration (in milliseconds) as needed
-            } else {
-                console.log("About section is not fully visible.");
-                // Clear timeout if about section is no longer visible
-                clearTimeout(timeout);
-            }
-            // if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-            //     // For mobile devices, trigger animation immediately when fully visible
-            //     if  (topAboutSection >= topViewport && bottomAboutSection <= bottomViewport){
-            //         document.getElementById('typewriter').style.display = 'block';
-            //         document.querySelector('.typewriter').classList.add('start-typing');
-            //     }
-        });
-    </script>
-
+    
 
 </head>
 <body>
