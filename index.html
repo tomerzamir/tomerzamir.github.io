@@ -311,10 +311,11 @@
             overflow: hidden; /* Ensures the content is not revealed until the animation */
             border-right: .15em solid orange; /* The typewriter cursor */
             /*white-space: nowrap; /* Keeps the content on a single line */
-            white-space: nowrap;
+            white-space: break-spaces; /*force line breaks where necessary to fit the content within the element's width.*/
             margin: 0 auto; /* Gives that scrolling effect as the typing happens */
             letter-spacing: .15em; /* Adjust as needed */
             display: grid;
+            max-width: 95%;
         }
         .typewriter p {
             display: grid; /* Ensure each paragraph stays together */
