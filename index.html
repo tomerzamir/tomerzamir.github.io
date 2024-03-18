@@ -330,6 +330,9 @@
             display: grid;
             max-width: 95%;
         }
+        .typewriter-mobile p {
+            display: grid; /* Ensure each paragraph stays together */
+        }
         /* The typing effect */
         @keyframes typing {
             0% {
@@ -391,6 +394,7 @@
                 document.querySelector('.typewriter').classList.add('start-typing');
             }
             function startTypewriterMobile() {
+                document.getElementById('typewriter').className = 'typewriter-mobile';
                 document.getElementById('typewriter').style.display = 'grid';
                 document.querySelector('.typewriter-mobile').classList.add('start-typing');
             }
