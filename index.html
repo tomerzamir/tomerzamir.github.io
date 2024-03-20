@@ -78,6 +78,10 @@
             #about p {
                 font-size: 14px;  /* Adjust font size for mobiles */
             }
+            .projects-container {
+                flex-direction: column;
+                align-items: center;
+            }
         }
 
 
@@ -411,7 +415,9 @@
             margin-top: 0;
         }
         /*portfolio widgets:*/
-        
+
+        /* Apply animation when the widget becomes visible */
+
         #portfolio {
             overflow-x: auto; /* Enable horizontal scrolling */
             padding-bottom: 20px; /* Add some bottom padding to prevent the last widget from being partially cut off */
@@ -428,11 +434,19 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, opacity 0.4s ease; /* Add transition for opacity */
             margin-right: 20px; /* Add some spacing between widgets */
             position: relative; /* Add this line */
+            opacity: 0; /* Initially transparent */
+            transform: translateY(20px); /* Initially translate down */
         }
- 
+
+        .project-widget.visible {
+            opacity: 1; /* Fade in the widgets */
+            transform: translateY(0); /* Move widgets back to their original position */
+            transition-duration: 2.42s; /* Duration for fade-in effect */
+        }
+                
         .project-widget:last-child {
             margin-right: 0; /* Remove right margin from the last widget */
         }
@@ -444,9 +458,10 @@
         }
 
         .project-widget:hover {
-            transform: translateY(-5px);
-            transform: scale(1.05);
+            transform: translateY(-5px) scale(1.066); /* Combine both transformations */
+            transition-duration: 0.242s !important; /* Apply transition duration */
         }
+
 
         .project-details {
             padding: 20px;
@@ -462,6 +477,7 @@
 
         .project-widget:hover .project-details {
             opacity: 1; /* Show details on hover */
+            transition-duration: 0.242s !important;
         }
 
         .project-details h3 {
@@ -475,15 +491,42 @@
         } 
 
         .other-widgets-darken {
-            opacity: 0.7; /* Darken the other widgets */
+            opacity: 0.5 !important; /* Darken the other widgets */
+            transition-duration: 0.3s !important; 
         }
 
         .project-widget:hover .project-details {
             opacity: 1; /* Show details on hover */
+            transition-duration: 0.242s !important; 
         }
 
     </style>
       <!-- Your JavaScript code -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        function handleIntersection(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }
+
+        const observer = new IntersectionObserver(handleIntersection, {
+            root: null, // viewport
+            rootMargin: '0px', // no margin
+            threshold: 0.2 // 20% of the target visible
+        });
+
+        const projectWidgets = document.querySelectorAll('.project-widget');
+        projectWidgets.forEach(widget => {
+            observer.observe(widget);
+        });
+    });
+
+    </script>
+    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var projectWidgets = document.querySelectorAll('.project-widget');
@@ -590,7 +633,7 @@
     
     <section id="portfolio">
         <h2 class="wavy">Portfolio</h2>
-        <div class="projects-container">
+        <div class="projects-container" id="projects">
             <div class="project-widget">
                 <a href="https://github.com/tomerzamir/voice-processing/tree/main" target="_blank">
                     <img src="voice.png" alt="Project 1">
