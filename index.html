@@ -112,6 +112,7 @@
         .contact-form {
             max-width: 800px;
             margin: 0 auto;
+            margin-bottom: 0px;
         }
         .contact-form input[type="text"],
         .contact-form input[type="email"],
@@ -164,18 +165,48 @@
             transition: scale 0.42s ease;
         }
         .contact-links img {
-            width: 30px;
-            height: 30px;
+            width: 36px;
+            height: 36px;
             transition: transform 0.3s ease;
         }
         .contact-links a:hover {
             color: #2f94ff; /* Change the link color on hover */
             font-weight: bold;
-            transform: scale(1.2);
+            transform: scale(1.24);
         }
         .contact-links img:hover {
-            transform: scale(1.2);
+            transform: scale(1.24);
         }
+        .cv {
+            list-style: none; /* Remove default list styling */
+            text-align: center; /* Center the text */
+            padding: 0; /* Remove any default padding */
+            margin: 0; /* Remove any default margin */
+            margin-top: 42px;
+            width: 100%; /* Ensure it spans the entire width */
+        }
+        .cv li {
+            display: inline-block; /* Ensure the li elements are displayed inline */
+            margin: 0 auto; /* Center the li elements horizontally */
+        }
+
+        .cv li a {
+            background-color: #333; /* Dark background color */
+            color: #fff; /* Text color */
+            padding: 10px 20px; /* Adjust padding for button size */
+            border-radius: 5px; /* Rounded corners */
+            text-decoration: none; /* Remove underline */
+            transition: background-color 0.3s ease; /* Smooth transition */
+        }
+        .cv li:hover a{
+            background-color: #555; /* Darker background color on hover */
+            color: #7fbcfd; /* Change the link color on hover */
+        }
+        .cv li:hover {
+            transform: scale(1.1);
+        }
+
+
         .image_right{
             float: right !important;
         }
@@ -250,7 +281,7 @@
 
         .footer{
             text-align: center;
-            margin-top: 100px;
+            margin-top: 0px;
             font-family: 'Lobster', cursive;
             margin-top: 0; /* Remove the bottom margin */
         }
@@ -379,11 +410,103 @@
         #portfolio{
             margin-top: 0;
         }
+        /*portfolio widgets:*/
+        
+        #portfolio {
+            overflow-x: auto; /* Enable horizontal scrolling */
+            padding-bottom: 20px; /* Add some bottom padding to prevent the last widget from being partially cut off */
+        }
+
+        .projects-container {
+            display: flex; /* Ensure the container is flex */
+            flex-direction: row;
+        }
+
+        .project-widget {
+            width: 520px; /* Set a fixed width for each widget */
+            height: 320px; /* Set a fixed height for each widget */
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            margin-right: 20px; /* Add some spacing between widgets */
+            position: relative; /* Add this line */
+        }
+ 
+        .project-widget:last-child {
+            margin-right: 0; /* Remove right margin from the last widget */
+        }
+
+        .project-widget img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure the entire image is shown without stretching */
+        }
+
+        .project-widget:hover {
+            transform: translateY(-5px);
+            transform: scale(1.05);
+        }
+
+        .project-details {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background color */
+            color: #fff; /* Text color */
+            transition: opacity 0.3s ease; /* Fade-in effect */
+            opacity: 0; /* Initially hidden */
+            position: absolute; /* Add this line */
+            bottom: 0; /* Add this line */
+            left: 0; /* Add this line */
+            right: 0; /* Add this line */
+        }
+
+        .project-widget:hover .project-details {
+            opacity: 1; /* Show details on hover */
+        }
+
+        .project-details h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .project-details p {
+            margin: 0;
+        } 
+
+        .other-widgets-darken {
+            opacity: 0.7; /* Darken the other widgets */
+        }
+
+        .project-widget:hover .project-details {
+            opacity: 1; /* Show details on hover */
+        }
 
     </style>
       <!-- Your JavaScript code -->
-
-      <script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var projectWidgets = document.querySelectorAll('.project-widget');
+        
+            projectWidgets.forEach(function(widget) {
+                widget.addEventListener('mouseenter', function() {
+                    projectWidgets.forEach(function(otherWidget) {
+                        if (otherWidget !== widget) {
+                            otherWidget.classList.add('other-widgets-darken');
+                        }
+                    });
+                });
+        
+                widget.addEventListener('mouseleave', function() {
+                    projectWidgets.forEach(function(otherWidget) {
+                        otherWidget.classList.remove('other-widgets-darken');
+                    });
+                });
+            });
+        });
+    </script>
+    
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Function to check if the device is a mobile
             function isMobileDevice() {
@@ -458,22 +581,47 @@
             <p>passionate about creating beautiful websites.</p>
             <p>My skills include HTML, CSS, JavaScript, and more.</p>
             <p>In addition, I am also proficient in data science and machine learning</p> 
-            <p>python and C programming</p>           
+            <p>python and C programming</p>
         </div>
-        <ul class="contact-links">
+        <ul class="cv">
             <li><a href="https://drive.google.com/file/d/1wkeUVKy09XYjKXMq2URdtOQ0dh_E9GUI/view?usp=sharing" target="_blank">my cv</a></li>
         </ul>
     </section>
     
     <section id="portfolio">
         <h2 class="wavy">Portfolio</h2>
-        <p>Check out some of my recent projects:</p>
-        <ul>
-            <li>Project 1</li>
-            <li>Project 2</li>
-            <li>Project 3</li>
-        </ul>
+        <div class="projects-container">
+            <div class="project-widget">
+                <a href="https://github.com/tomerzamir/voice-processing/tree/main" target="_blank">
+                    <img src="voice.png" alt="Project 1">
+                </a>
+                <div class="project-details">
+                    <h3>detection of Parkinson's Disease</h3>
+                    <p>using deep learning and voice analysis</p>
+                </div>
+            </div>
+            <div class="project-widget">
+                <a href="https://github.com/tomerzamir/IoT_smart_home" target="_blank">
+                    <img src="IoT.png" alt="Project 2">
+                </a>
+                <div class="project-details">
+                    <h3>IoT project</h3>
+                    <p>implemented using MQTT in Python</p>
+                </div>
+            </div>
+            <div class="project-widget">
+                <a href="https://github.com/tomerzamir/2D-Unity-first-game" target="_blank">
+                    <img src="unity1.gif" alt="Project 3">
+                </a>
+                <div class="project-details">
+                    <h3>Donut Delivery</h3>
+                    <p>Game developed with Unity in C++</p>
+                </div>
+            </div>
+        </div>
     </section>
+         
+    
     <section id="contact">
         <h2 class="wavy">contact me</h2>
         <!--<p>You can reach out to me through the following channels:</p>-->
