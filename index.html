@@ -81,15 +81,19 @@
             .projects-container {
                 flex-direction: column;
                 align-items: center;
-
                 display: flex;
                 justify-content: center;
             }
             .project-widget {
-                width: 90%; /* Set to a percentage of the viewport width */
+                width: 80%; /* Set to a percentage of the viewport width */
                 margin-right: 0; /* Remove right margin */
                 margin-bottom: 20px; /* Add some bottom margin */
             }
+            .project-widget:hover {
+                transform: translateY(-5px) scale(1.02); /* Combine both transformations */
+                transition-duration: 0.242s !important; /* Apply transition duration */
+            }
+
         }
 
 
