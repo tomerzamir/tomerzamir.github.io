@@ -2,7 +2,7 @@
 
 developed with html css and JavaScript
 
-Visit [here](https://tomerzamir.github.io/).
+Visit <a href="https://tomerzamir.github.io/" target="_blank">here</a>.
 
 ## demos
 
