@@ -81,6 +81,9 @@
             .projects-container {
                 flex-direction: column;
                 align-items: center;
+
+                display: flex;
+                justify-content: center;
             }
             .project-widget {
                 width: 90%; /* Set to a percentage of the viewport width */
@@ -267,7 +270,7 @@
             /* vertical-align: top; */
             /* width: 30%;
             height: 40%; */
-            width: 24vw;  /* Adjust the width as needed for mobiles */
+            width: 20vw;  /* Adjust the width as needed for mobiles */
             height: auto;  /* Maintain aspect ratio */
             margin: 0px;
         }
@@ -416,21 +419,24 @@
         #about{
             margin-bottom: 0;
         }
-        #portfolio{
-            margin-top: 0;
-        }
-        /*portfolio widgets:*/
 
+        /*portfolio widgets:*/
         /* Apply animation when the widget becomes visible */
 
         #portfolio {
-            overflow-x: auto; /* Enable horizontal scrolling */
+            margin-top: 0;
+            overflow: hidden; /* Hide any content that overflows */            
+            overflow-x: hidden; /* Hide any content that overflows */            
+            overflow-y: hidden; /* Hide any content that overflows */            
             padding-bottom: 20px; /* Add some bottom padding to prevent the last widget from being partially cut off */
         }
 
         .projects-container {
-            display: flex; /* Ensure the container is flex */
-            flex-direction: row;
+            display: flex;
+            flex-wrap: nowrap; /* Prevent wrapping to ensure all widgets stay in a single row */
+            width: 100%; /* Occupy full available width */
+            justify-content: center; /* Center the content horizontally */
+            padding: 0; /* Remove padding to utilize full width */
         }
 
         .project-widget {
@@ -504,6 +510,27 @@
             opacity: 1; /* Show details on hover */
             transition-duration: 0.242s !important; 
         }
+        /* Navigation buttons */
+        .nav-button {
+            background-color: transparent;
+            border: none;
+            color: #333; /* Button color */
+            font-size: 24px; /* Button size */
+            cursor: pointer;
+            position: absolute;
+            top: 50%; /* Position vertically centered */
+            transform: translateY(-50%);
+            z-index: 2; /* Ensure buttons are above project widgets */
+        }
+
+        .prev {
+            left: 10px; /* Position the previous button to the left */
+        }
+
+        .next {
+            right: 10px; /* Position the next button to the right */
+        }
+
 
     </style>
       <!-- Your JavaScript code -->
@@ -635,10 +662,50 @@
             <li><a href="https://drive.google.com/file/d/1wkeUVKy09XYjKXMq2URdtOQ0dh_E9GUI/view?usp=sharing" target="_blank">my cv</a></li>
         </ul>
     </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectWidgets = document.querySelectorAll('.project-widget');
+            const container = document.querySelector('.projects-container');
+            const prevButton = document.querySelector('.nav-button.prev');
+            const nextButton = document.querySelector('.nav-button.next');
     
+            let currentIndex = 0;
+    
+            // Function to move to the previous widget
+            function movePrev() {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    scrollToCurrentWidget();
+                }
+            }
+    
+            // Function to move to the next widget
+            function moveNext() {
+                if (currentIndex < projectWidgets.length - 1) {
+                    currentIndex++;
+                    scrollToCurrentWidget();
+                }
+            }
+    
+            // Function to scroll to the current widget
+            function scrollToCurrentWidget() {
+                const widget = projectWidgets[currentIndex];
+                const offsetLeft = widget.offsetLeft;
+                container.scrollTo({
+                    left: offsetLeft,
+                    behavior: 'smooth'
+                });
+            }
+    
+            // Event listeners for navigation buttons
+            prevButton.addEventListener('click', movePrev);
+            nextButton.addEventListener('click', moveNext);
+        });
+    </script>
     <section id="portfolio">
         <h2 class="wavy">Portfolio</h2>
         <div class="projects-container" id="projects">
+            <button class="nav-button prev">&lt;</button>
             <div class="project-widget">
                 <a href="https://github.com/tomerzamir/voice-processing/tree/main" target="_blank">
                     <img src="voice.png" alt="Project 1">
@@ -666,6 +733,7 @@
                     <p>Game developed with Unity in C++</p>
                 </div>
             </div>
+            <button class="nav-button next">&gt;</button>
         </div>
     </section>
          
