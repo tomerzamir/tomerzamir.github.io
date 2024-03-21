@@ -45,7 +45,7 @@
             }
             section {
                 height: auto; /* Remove fixed height for better content display */
-                margin-bottom: 20px !important;
+                margin-bottom: 24px !important;
             }
             .contact-form input[type="text"],
             .contact-form input[type="email"],
@@ -85,9 +85,10 @@
                 justify-content: center !important;
             }
             .project-widget {
-                width: 94% !important; /* Set to a percentage of the viewport width */
-                margin-right: 0; /* Remove right margin */
+                width: calc(94% - 40px); /* Set to 90% of the container width with some margin */
                 margin-bottom: 20px; /* Add some bottom margin */
+                align-items: center !important;
+                justify-content: center !important;
             }
             .project-widget:hover {
                 transform: translateY(-5px) scale(1.02) !important; 
