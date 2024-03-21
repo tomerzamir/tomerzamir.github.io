@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,41 +16,49 @@
         /* Styles for the entire page */
         body {
             font-family: "museomoderno", sans-serif;
-    	    font-weight: 400;
+            font-weight: 400;
             font-style: normal;
             margin: 0;
-            padding: 0;
-            scroll-behavior: smooth; /* Smooth scrolling behavior */
-            background-color: #0892d0; 
-            color: #fff; /* Light text color */
+            scroll-behavior: smooth;
+            /* Smooth scrolling behavior */
+            background-color: #0892d0;
+            color: #fff;
+            /* Light text color */
         }
+
         /* Styles for sections */
         section {
-            height: 66vh; /* Set a fixed height for all sections */
+            height: 66vh;
+            /* Set a fixed height for all sections */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            margin-bottom: 24px;
+            margin-bottom: 120px;
+            padding: 20px;
         }
-        
+
         h2 {
             font-size: 2em;
             font-family: "museomoderno", sans-serif;
             margin-bottom: 20px;
         }
+
         /* Navigation styles */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: #871F78; /* Dark navigation background with transparency */
-            z-index: 1000; /* Ensure it's above other content */
+            background-color: #871F78;
+            /* Dark navigation background with transparency */
+            z-index: 1000;
+            /* Ensure it's above other content */
             opacity: 0.88;
-            
+
         }
+
         nav a {
             color: #fff;
             text-decoration: none;
@@ -59,17 +68,20 @@
             transition: transform 0.3s ease;
             padding: 20px;
         }
+
         nav a:hover {
             /* background-color: rgba(18, 18, 18, 0.5); Darker background color on hover */
             font-weight: bold;
             /* transform: scale(1.2); */
         }
+
         /* Contact form styles */
-        .contact-form {     
+        .contact-form {
             max-width: 800px;
             margin: 0 auto;
             margin-bottom: 0px;
         }
+
         .contact-form input[type="text"],
         .contact-form input[type="email"],
         .contact-form textarea {
@@ -78,18 +90,23 @@
             margin: 10px 0;
             border: none;
             border-radius: 5px;
-            background-color: #3e3a3a92; /* Darker background color for form inputs */
+            background-color: #3e3a3a92;
+            /* Darker background color for form inputs */
             color: #fff;
             box-sizing: border-box;
             transition: background-color 0.3s ease;
         }
+
         .contact-form input[type="text"]:focus,
         .contact-form input[type="email"]:focus,
         .contact-form textarea:focus {
-            background-color: #333; /* Darker background color on focus */
+            background-color: #333;
+            /* Darker background color on focus */
         }
+
         .contact-form input[type="submit"] {
-            background-color: #007bff; /* Button color */
+            background-color: #0056b3;
+            /* Button color */
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -100,14 +117,18 @@
             font-weight: 500;
             font-style: normal;
         }
+
         .contact-form input[type="submit"]:hover {
-            background-color: #0056b3; /* Darker button color on hover */
+            background-color: #063f7c;
+            /* Darker button color on hover */
             font-weight: bold;
             transform: scale(0.9);
         }
+
         .contact-form label {
             font-weight: bold;
         }
+
         /* Link styles */
         .contact-links {
             font-family: "museomoderno", sans-serif;
@@ -117,80 +138,113 @@
             list-style: none;
             padding: 0;
         }
+
         .contact-links li {
             margin-bottom: 10px;
         }
+
         .contact-links a {
-            color: #2d87fd; /* Link color */
+            color: #2d87fd;
+            /* Link color */
             text-decoration: none;
-            transition: color 0.3s ease; /* Smooth transition for color change */
+            transition: color 0.3s ease;
+            /* Smooth transition for color change */
             transition: scale 0.42s ease;
         }
+
         .contact-links img {
             width: 42px;
             height: 42px;
             transition: transform 0.3s ease;
         }
+
         .contact-links a:hover {
-            color: #2f94ff; /* Change the link color on hover */
+            color: #2f94ff;
+            /* Change the link color on hover */
             font-weight: bold;
             transform: scale(1.24);
         }
+
         .contact-links img:hover {
             transform: scale(1.24);
         }
+
         .cv {
-            list-style: none; /* Remove default list styling */
-            text-align: center; /* Center the text */
-            padding: 0; /* Remove any default padding */
-            margin: 0; /* Remove any default margin */
+            list-style: none;
+            /* Remove default list styling */
+            text-align: center;
+            /* Center the text */
+            padding: 0;
+            /* Remove any default padding */
+            margin: 0;
+            /* Remove any default margin */
             margin-top: 42px;
-            width: 100%; /* Ensure it spans the entire width */
+            width: 100%;
+            /* Ensure it spans the entire width */
         }
+
         .cv li {
-            display: inline-block; /* Ensure the li elements are displayed inline */
-            margin: 0 auto; /* Center the li elements horizontally */
+            display: inline-block;
+            /* Ensure the li elements are displayed inline */
+            margin: 0 auto;
+            /* Center the li elements horizontally */
         }
 
         .cv li a {
-            background-color: #333; /* Dark background color */
-            color: #fff; /* Text color */
-            padding: 10px 20px; /* Adjust padding for button size */
-            border-radius: 5px; /* Rounded corners */
-            text-decoration: none; /* Remove underline */
-            transition: background-color 0.3s ease; /* Smooth transition */
+            background-color: #333;
+            /* Dark background color */
+            color: #fff;
+            /* Text color */
+            padding: 10px 20px;
+            /* Adjust padding for button size */
+            border-radius: 5px;
+            /* Rounded corners */
+            text-decoration: none;
+            /* Remove underline */
+            transition: background-color 0.3s ease;
+            /* Smooth transition */
         }
-        .cv li:hover a{
-            background-color: #555; /* Darker background color on hover */
-            color: #7fbcfd; /* Change the link color on hover */
+
+        .cv li:hover a {
+            background-color: #871F78;
+            /* Darker background color on hover */
+            color: #7fbcfd;
+            /* Change the link color on hover */
         }
+
         .cv li:hover {
             transform: scale(1.1);
         }
 
 
-        .image_right{
+        .image_right {
             float: right !important;
         }
+
         .parallax {
             /* The image used */
             background-image: url("kurzgesagt.jpg");
 
             /* Set a specific height */
-            height: 360px; 
-
+            height: 260px;
+            margin-bottom: 24px !important;
+            padding: 0px;
             /* Create the parallax scrolling effect */
             background-attachment: fixed;
-            background-position: center top -300px;
+            background-position: center top -142px;
             background-repeat: no-repeat;
             background-size: cover;
         }
 
         .pac-man-container {
-            position: absolute; /* Position relative to the footer */
-            bottom: 0; /* Align to the bottom of the footer */
-            width: 100%; /* Ensure full width */
-            text-align: center; /* Center the .pac-man element horizontally */
+            position: absolute;
+            /* Position relative to the footer */
+            bottom: 0;
+            /* Align to the bottom of the footer */
+            width: 100%;
+            /* Ensure full width */
+            text-align: center;
+            /* Center the .pac-man element horizontally */
         }
 
         .pac-man {
@@ -204,8 +258,10 @@
             background-size: contain;
 
             /* Animation */
-            animation: movePacman 10s linear infinite; /* Adjust duration and timing function */
+            animation: movePacman 10s linear infinite;
+            /* Adjust duration and timing function */
         }
+
         .pac-man-small {
             /* Set a specific height */
             display: block;
@@ -220,10 +276,13 @@
             /* vertical-align: top; */
             /* width: 30%;
             height: 40%; */
-            width: 20vw;  /* Adjust the width as needed for mobiles */
-            height: auto;  /* Maintain aspect ratio */
+            width: 20vw;
+            /* Adjust the width as needed for mobiles */
+            height: auto;
+            /* Maintain aspect ratio */
             margin: 0px;
         }
+
         /* .pacme img:hover {
             animation: moveHorizontal 7s linear infinite;
         } */
@@ -236,112 +295,157 @@
         } */
 
         @keyframes moveHorizontal {
-            0%, 100% { transform: translateX(100%); } /* Start and end at the right edge */
-            40% { transform: translateX(0%); } /* Stay at left edge for 1 second */
-            85% { transform: translateX(100%); } /* Move back to right edge over 1.5 seconds */
-        } 
 
-        .footer{
+            0%,
+            100% {
+                transform: translateX(100%);
+            }
+
+            /* Start and end at the right edge */
+            40% {
+                transform: translateX(0%);
+            }
+
+            /* Stay at left edge for 1 second */
+            85% {
+                transform: translateX(100%);
+            }
+
+            /* Move back to right edge over 1.5 seconds */
+        }
+
+        .footer {
             text-align: center;
             margin-top: 0px;
             font-family: 'Lobster', cursive;
-            margin-top: 0; /* Remove the bottom margin */
+            font-weight: 100;
+            margin-top: 0;
+            /* Remove the bottom margin */
         }
 
         @keyframes signatureAnimation {
-        0% {
-            transform: scale(1) rotate(0deg);
-            opacity: 0.2;
-        }
-        50% {
-            transform: scale(1.2) rotate(5deg);
-            opacity: 0.5;
-        }
-        100% {
-            transform: scale(1) rotate(0deg);
-            opacity: 1;
-        }
+            0% {
+                transform: scale(1) rotate(0deg);
+                opacity: 0.2;
+            }
+
+            50% {
+                transform: scale(1.2) rotate(5deg);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
         }
 
         .footer p {
             position: relative;
             transition: color 0.42s ease, text-shadow 0.42s ease-in-out;
-            margin-top: 0; /* Remove the bottom margin */
+            margin-top: 0;
+            /* Remove the bottom margin */
 
         }
 
         .footer p:hover {
-            color: hsl(189, 97%, 75%);
+            color: white;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: bold;
         }
 
         .footer p::after {
             content: '';
             position: absolute;
-            left: 35%; /* Adjust the horizontal position of the wavy line */
-            bottom: -2px; /* Adjust the distance of the underline from the text */
-            width: 30%; /* Adjust the width of the wavy line */
-            height: 2px; /* Adjust the height of the wavy line */
-            background-image: linear-gradient(to right, rgba(22, 86, 215, 0.626), rgba(14, 109, 193, 0.831), 
-            rgba(92, 160, 238, 0.831), rgba(92, 160, 238, 0.9), rgba(14, 109, 193, 0.831),
-            rgba(22, 86, 215, 0.626)); /* Adjust the colors */
-            transition: background-image 0.42s ease; /* Add transition for smooth color change */
+            left: 35%;
+            /* Adjust the horizontal position of the wavy line */
+            bottom: -2px;
+            /* Adjust the distance of the underline from the text */
+            width: 30%;
+            /* Adjust the width of the wavy line */
+            height: 2px;
+            /* Adjust the height of the wavy line */
+            background-image: linear-gradient(to right, rgba(22, 86, 215, 0.626), rgba(14, 109, 193, 0.831),
+                    rgba(92, 160, 238, 0.831), rgba(92, 160, 238, 0.9), rgba(14, 109, 193, 0.831),
+                    rgba(22, 86, 215, 0.626));
+            /* Adjust the colors */
+            transition: background-image 0.42s ease;
+            /* Add transition for smooth color change */
         }
 
         .footer p:hover::after {
-            background-image: linear-gradient(to right, rgba(22, 86, 215, 0.9), rgba(14, 109, 193, 0.831), 
-                rgba(92, 160, 238, 0.9), rgba(92, 160, 238, 0.9), rgba(14, 109, 193, 0.831),
-                rgba(22, 86, 215, 0.9)); /* Adjust the colors for the hover effect */
+            background-image: linear-gradient(to right, rgba(22, 86, 215, 0.9), rgba(14, 109, 193, 0.831),
+                    rgba(92, 160, 238, 0.9), rgba(92, 160, 238, 0.9), rgba(14, 109, 193, 0.831),
+                    rgba(22, 86, 215, 0.9));
+            /* Adjust the colors for the hover effect */
         }
 
-        nav{
+        nav {
             text-align: center;
             font-family: "museomoderno", sans-serif;
             font-weight: 400;
             font-style: normal;
             text-decoration: wavy lightblue;
         }
+
         /* CSS */
         /* Base typewriter styles */
         .typewriter {
-            overflow: hidden; /* Ensures the content is not revealed until the animation */
-            border-right: .15em solid orange; /* The typewriter cursor */
+            overflow: hidden;
+            /* Ensures the content is not revealed until the animation */
+            border-right: .15em solid orange;
+            /* The typewriter cursor */
             /*white-space: nowrap; /* Keeps the content on a single line */
-            white-space: nowrap; /*force line breaks where necessary to fit the content within the element's width.*/
-            margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-            letter-spacing: .15em; /* Adjust as needed */
+            white-space: nowrap;
+            /*force line breaks where necessary to fit the content within the element's width.*/
+            margin: 0 auto;
+            /* Gives that scrolling effect as the typing happens */
+            letter-spacing: .15em;
+            /* Adjust as needed */
             display: grid;
             max-width: 95%;
             font-family: 'MODERN TYPEWRITER', sans-serif;
         }
+
         .typewriter p {
-            display: grid; /* Ensure each paragraph stays together */
+            display: grid;
+            /* Ensure each paragraph stays together */
         }
+
         .typewriter-mobile {
-            overflow: hidden; /* Ensures the content is not revealed until the animation */
-            border-right: .15em solid orange; /* The typewriter cursor */
+            overflow: hidden;
+            /* Ensures the content is not revealed until the animation */
+            border-right: .15em solid orange;
+            /* The typewriter cursor */
             /*white-space: nowrap; /* Keeps the content on a single line */
-            white-space: break-spaces; /*force line breaks where necessary to fit the content within the element's width.*/
-            margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-            letter-spacing: .15em; /* Adjust as needed */
+            white-space: break-spaces;
+            /*force line breaks where necessary to fit the content within the element's width.*/
+            margin: 0 auto;
+            /* Gives that scrolling effect as the typing happens */
+            letter-spacing: .15em;
+            /* Adjust as needed */
             /* display: grid; */
             max-width: 100%;
             display: flex;
             flex-wrap: nowrap;
         }
+
         .typewriter-mobile p {
-            display: grid; /* Ensure each paragraph stays together */
+            display: grid;
+            /* Ensure each paragraph stays together */
         }
+
         /* The typing effect */
         @keyframes typing {
             0% {
                 width: 0%;
             }
+
             100% {
                 width: 100%;
             }
         }
-        
+
         /* @keyframes typing {
             from { width: 0 }
             to { width: max-content }
@@ -349,8 +453,15 @@
 
         /* The typewriter cursor effect */
         @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: orange; }
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: orange;
+            }
         }
 
         /* Animation applied when start-typing class is added */
@@ -358,7 +469,8 @@
             animation: typing 1.5s steps(42, end), blink-caret .75s step-end 3.5s forwards;
             /* Adjust timing and steps as needed */
         }
-        .typewriter-mobile.start-typing{
+
+        .typewriter-mobile.start-typing {
             animation: typing 1.5s steps(42, end), blink-caret .75s step-end 3.5s forwards;
             /* Adjust timing and steps as needed */
         }
@@ -368,20 +480,23 @@
             text-decoration-style: wavy;
             text-decoration-color: rgb(52, 108, 228);
             position: relative;
-            color: #FFA500;
+            color: #ea3753;
         }
+
         #about {
             text-align: center;
             display: flex;
             align-items: flex-start;
             justify-content: space-between;
             padding: 0px;
+            margin-bottom: 160px;
         }
 
         .about-content {
             /* max-width: calc(50% - 20px); */
             max-width: 100%;
-            margin-top: 20px; /* Add margin to separate from the top */
+            margin-top: 20px;
+            /* Add margin to separate from the top */
         }
 
         /* .astronaut-container {
@@ -392,26 +507,35 @@
         } */
 
         .space-man {
-            max-width: 20%; /* Adjust the width of the image */
+            max-width: 20%;
+            /* Adjust the width of the image */
             height: auto;
             animation: slideRight 1.6s ease forwards;
-            position: absolute; /* Position the image */
-            top: 420px;
-            left: 50%; /* Align the left side of the image to the center horizontally */
-            transform: translateX(-50%); /* Adjust the image position to center it horizontally */
+            position: absolute;
+            /* Position the image */
+            top: 440px;
+            left: 50%;
+            /* Align the left side of the image to the center horizontally */
+            transform: translateX(-50%);
+            /* Adjust the image position to center it horizontally */
         }
+
         .spidey {
-            max-width: 10%; /* Adjust the width of the image */
+            max-width: 10%;
+            /* Adjust the width of the image */
             height: auto;
-            position: absolute; /* Position the image */
-            top: 360px;
-            left: 0%; /* Align the left side of the image to the center horizontally */
+            position: absolute;
+            /* Position the image */
+            top: 260px;
+            left: 0%;
+            /* Align the left side of the image to the center horizontally */
         }
 
         @keyframes slideRight {
             0% {
                 transform: translateX(0%);
             }
+
             100% {
                 transform: translateX(100%);
             }
@@ -421,80 +545,112 @@
             0% {
                 transform: translateY(0%);
             }
+
             100% {
                 transform: translateY(-100%);
             }
         }
-        
+
 
         /*portfolio widgets:*/
         /* Apply animation when the widget becomes visible */
 
         #portfolio {
             margin-top: 0;
-            overflow: hidden; /* Hide any content that overflows */            
-            overflow-x: hidden; /* Hide any content that overflows */            
-            overflow-y: hidden; /* Hide any content that overflows */            
-            padding-bottom: 20px; /* Add some bottom padding to prevent the last widget from being partially cut off */
+            overflow: hidden;
+            /* Hide any content that overflows */
+            overflow-x: hidden;
+            /* Hide any content that overflows */
+            overflow-y: hidden;
+            /* Hide any content that overflows */
+            padding-bottom: 20px;
+            /* Add some bottom padding to prevent the last widget from being partially cut off */
         }
 
         .projects-container {
             display: flex;
-            flex-wrap: nowrap; /* Prevent wrapping to ensure all widgets stay in a single row */
-            width: 100%; /* Occupy full available width */
-            justify-content: center; /* Center the content horizontally */
-            padding: 0; /* Remove padding to utilize full width */
+            flex-wrap: nowrap;
+            /* Prevent wrapping to ensure all widgets stay in a single row */
+            width: 100%;
+            /* Occupy full available width */
+            justify-content: center;
+            /* Center the content horizontally */
+            padding: 0;
+            /* Remove padding to utilize full width */
         }
 
         .project-widget {
-            width: 520px; /* Set a fixed width for each widget */
-            height: 320px; /* Set a fixed height for each widget */
+            width: 520px;
+            /* Set a fixed width for each widget */
+            height: 320px;
+            /* Set a fixed height for each widget */
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, opacity 0.4s ease; /* Add transition for opacity */
-            margin-right: 20px; /* Add some spacing between widgets */
-            position: relative; /* Add this line */
-            opacity: 0; /* Initially transparent */
-            transform: translateY(20px); /* Initially translate down */
+            transition: transform 0.3s ease, opacity 0.4s ease;
+            /* Add transition for opacity */
+            margin-right: 20px;
+            /* Add some spacing between widgets */
+            position: relative;
+            /* Add this line */
+            opacity: 0;
+            /* Initially transparent */
+            transform: translateY(20px);
+            /* Initially translate down */
         }
 
         .project-widget.visible {
-            opacity: 1; /* Fade in the widgets */
-            transform: translateY(0); /* Move widgets back to their original position */
-            transition-duration: 2.42s; /* Duration for fade-in effect */
+            opacity: 1;
+            /* Fade in the widgets */
+            transform: translateY(0);
+            /* Move widgets back to their original position */
+            transition-duration: 2.42s;
+            /* Duration for fade-in effect */
         }
-                
+
         .project-widget:last-child {
-            margin-right: 0; /* Remove right margin from the last widget */
+            margin-right: 0;
+            /* Remove right margin from the last widget */
         }
 
         .project-widget img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ensure the entire image is shown without stretching */
+            object-fit: cover;
+            /* Ensure the entire image is shown without stretching */
         }
 
         .project-widget:hover {
-            transform: translateY(-5px) scale(1.066); /* Combine both transformations */
-            transition-duration: 0.242s !important; /* Apply transition duration */
+            transform: translateY(-5px) scale(1.066);
+            /* Combine both transformations */
+            transition-duration: 0.242s !important;
+            /* Apply transition duration */
         }
 
 
         .project-details {
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background color */
-            color: #fff; /* Text color */
-            transition: opacity 0.3s ease; /* Fade-in effect */
-            opacity: 0; /* Initially hidden */
-            position: absolute; /* Add this line */
-            bottom: 0; /* Add this line */
-            left: 0; /* Add this line */
-            right: 0; /* Add this line */
+            background-color: rgba(0, 0, 0, 0.8);
+            /* Semi-transparent background color */
+            color: #fff;
+            /* Text color */
+            transition: opacity 0.3s ease;
+            /* Fade-in effect */
+            opacity: 0;
+            /* Initially hidden */
+            position: absolute;
+            /* Add this line */
+            bottom: 0;
+            /* Add this line */
+            left: 0;
+            /* Add this line */
+            right: 0;
+            /* Add this line */
         }
 
         .project-widget:hover .project-details {
-            opacity: 1; /* Show details on hover */
+            opacity: 1;
+            /* Show details on hover */
             transition-duration: 0.242s !important;
         }
 
@@ -506,66 +662,96 @@
 
         .project-details p {
             margin: 0;
-        } 
+        }
 
         .other-widgets-darken {
-            opacity: 0.5 !important; /* Darken the other widgets */
-            transition-duration: 0.3s !important; 
+            opacity: 0.5 !important;
+            /* Darken the other widgets */
+            transition-duration: 0.3s !important;
         }
 
         .project-widget:hover .project-details {
-            opacity: 1; /* Show details on hover */
-            transition-duration: 0.242s !important; 
+            opacity: 1;
+            /* Show details on hover */
+            transition-duration: 0.242s !important;
         }
 
         /* Adjustments for screens less than or equal to 600px wide */
         @media only screen and (max-width: 600px) {
             body {
-                font-size: 16px; /* Adjust font size for better readability */
+                font-size: 16px;
+                /* Adjust font size for better readability */
             }
+
             nav {
-                padding: 10px 0; /* Increase padding for easier tapping */
+                padding: 10px 0;
+                /* Increase padding for easier tapping */
             }
+
             nav a {
-                padding: 12px; /* Increase padding for easier tapping */
-                font-size: 16px; /* Adjust font size for better readability */
+                padding: 12px;
+                /* Increase padding for easier tapping */
+                font-size: 16px;
+                /* Adjust font size for better readability */
             }
+
             section {
-                height: auto; /* Remove fixed height for better content display */
+                height: auto;
+                /* Remove fixed height for better content display */
                 margin-bottom: 42px !important;
             }
+
             .contact-form input[type="text"],
             .contact-form input[type="email"],
             .contact-form textarea {
-                width: 90%; /* Adjust input field width for smaller screens */
-                margin: 10px auto; /* Center input fields */
+                width: 90%;
+                /* Adjust input field width for smaller screens */
+                margin: 10px auto;
+                /* Center input fields */
             }
+
             .contact-form input[type="submit"] {
-                width: 90%; /* Adjust button width for smaller screens */
+                width: 90%;
+                /* Adjust button width for smaller screens */
             }
+
             .footer {
-                font-size: 14px; /* Adjust font size for better readability */
+                font-size: 14px;
+                /* Adjust font size for better readability */
             }
+
             .pacme img {
-                width: 30vw; /* Adjust width as needed */
-                height: auto; /* Maintain aspect ratio */
+                width: 30vw;
+                /* Adjust width as needed */
+                height: auto;
+                /* Maintain aspect ratio */
             }
+
             #myGIF {
-                width: 30vw;  /* Adjust the width as needed for mobiles */
-                height: auto;  /* Maintain aspect ratio */
+                width: 30vw;
+                /* Adjust the width as needed for mobiles */
+                height: auto;
+                /* Maintain aspect ratio */
             }
 
             /* Adjust size of about me section */
             #about {
-                font-size: 16px; /* Adjust font size for better readability */
-                max-width: 90vh; /* Limit maximum width of the about section */
-                max-height: 66vh;  /* Adjust the height as needed */
-                margin: 0 auto; /* Center the about section */
-                margin-bottom: 88px !important;                
+                font-size: 16px;
+                /* Adjust font size for better readability */
+                max-width: 90vh;
+                /* Limit maximum width of the about section */
+                max-height: 66vh;
+                /* Adjust the height as needed */
+                margin: 0 auto;
+                /* Center the about section */
+                margin-bottom: 88px !important;
             }
+
             #about p {
-                font-size: 14px;  /* Adjust font size for mobiles */
+                font-size: 14px;
+                /* Adjust font size for mobiles */
             }
+
             .projects-container {
                 flex-direction: column;
                 align-items: center !important;
@@ -574,38 +760,69 @@
                 padding: 20px !important;
                 margin-bottom: 20px !important;
             }
+
             .project-widget {
-                width: 100% !important; /* Set to 90% of the container width with some margin */
-                
+                width: 100% !important;
+                /* Set to 90% of the container width with some margin */
+
                 margin: auto !important;
-                box-sizing: border-box; /* Ensure padding and border are included in the width */
+                box-sizing: border-box;
+                /* Ensure padding and border are included in the width */
                 padding: 2px;
             }
+
             .project-widget:hover {
-                transform: translateY(-5px) scale(1.02) !important; 
+                transform: translateY(-5px) scale(1.02) !important;
                 transition-duration: 0.242s !important;
             }
+
             .space-man {
-                display: none;
-                animation: slideUp 1.6s ease forwards;
-                top: 520px;
-                left: 75%;
+                /* Initial position */
+                position: absolute;
+                top: 2020px;
+                left: 22%;
+                /* transition: slideLeft 1.6s ease; */
             }
-            .parallax {
-                min-height: 420px;
-                background-position: center;
+
+            /* .slide-left {
+                animation: slideLeft 1.6s ease forwards;
             }
-            .spidey {
-                max-width: 30%; /* Adjust the width of the image */
-                height: auto;
-                position: absolute; /* Position the image */
-                top: 420px;
-                left: 0%; /* Align the left side of the image to the center horizontally */
+
+        @keyframes slideLeft {
+            0% {
+                transform: translateX(0%);
+            }
+
+            100% {
+                transform: translateX(-60%);
             }
         }
 
+        */
+            .parallax {
+                min-height: 360px;
+                background-position: center;
+                background-position: center top -120px;
+            }
+
+            .spidey {
+                max-width: 30%;
+                /* Adjust the width of the image */
+                height: auto;
+                position: absolute;
+                /* Position the image */
+                top: 360px;
+                left: 0%;
+                /* Align the left side of the image to the center horizontally */
+            }
+        }
     </style>
-      <!-- Your JavaScript code -->
+    <!-- Your JavaScript code -->
+    <!-- <script>
+        document.getElementById("spaceMan").addEventListener("click", function () {
+            this.classList.toggle("slideLeft");
+        });
+    </script> -->
     <script>
         function startTypewriterAnimation() {
             document.getElementById('typewriter').style.display = 'grid';
@@ -618,7 +835,7 @@
         }
     </script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             function isMobileDevice() {
                 return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
             }
@@ -628,60 +845,60 @@
                 startTypewriterMobile();
             }
 
-           startTypewriterAnimation(); // Delay start of typewriter animation by 500 milliseconds
+            startTypewriterAnimation(); // Delay start of typewriter animation by 500 milliseconds
         });
 
     </script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-        function handleIntersection(entries, observer) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
+        document.addEventListener('DOMContentLoaded', function () {
+            function handleIntersection(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }
+
+            const observer = new IntersectionObserver(handleIntersection, {
+                root: null, // viewport
+                rootMargin: '0px', // no margin
+                threshold: 0.2 // 20% of the target visible
             });
-        }
 
-        const observer = new IntersectionObserver(handleIntersection, {
-            root: null, // viewport
-            rootMargin: '0px', // no margin
-            threshold: 0.2 // 20% of the target visible
+            const projectWidgets = document.querySelectorAll('.project-widget');
+            projectWidgets.forEach(widget => {
+                observer.observe(widget);
+            });
         });
-
-        const projectWidgets = document.querySelectorAll('.project-widget');
-        projectWidgets.forEach(widget => {
-            observer.observe(widget);
-        });
-    });
 
     </script>
-    
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             var projectWidgets = document.querySelectorAll('.project-widget');
-        
-            projectWidgets.forEach(function(widget) {
-                widget.addEventListener('mouseenter', function() {
-                    projectWidgets.forEach(function(otherWidget) {
+
+            projectWidgets.forEach(function (widget) {
+                widget.addEventListener('mouseenter', function () {
+                    projectWidgets.forEach(function (otherWidget) {
                         if (otherWidget !== widget) {
                             otherWidget.classList.add('other-widgets-darken');
                         }
                     });
                 });
-        
-                widget.addEventListener('mouseleave', function() {
-                    projectWidgets.forEach(function(otherWidget) {
+
+                widget.addEventListener('mouseleave', function () {
+                    projectWidgets.forEach(function (otherWidget) {
                         otherWidget.classList.remove('other-widgets-darken');
                     });
                 });
             });
         });
     </script>
-    
-    
-    
-<!--script for the old typewriter after scrolling:-->
+
+
+
+    <!--script for the old typewriter after scrolling:-->
     <!-- <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Function to check if the device is a mobile
@@ -732,11 +949,12 @@
             });
         });
     </script> -->
-    
+
 
 </head>
+
 <body>
-    
+
     <nav>
         <a href="#home" onclick="scrollToTop()">↑</a>
         <a href="#about" id="ab">About</a>
@@ -745,31 +963,32 @@
     </nav>
     <script>
         function scrollToTop() {
-          window.scrollTo({ top: 0, behavior: "smooth" });
+            window.scrollTo({ top: 0, behavior: "smooth" });
         }
     </script>
-    
+
     <!-- <section class="parallax"></section> -->
     <section class="parallax"></section>
     <section id="about">
         <div class="about-content">
             <h2>Hello!</h2>
-            <h2 class="wavy">About Me</h2>
+            <h2 class="wavy">I am Tomer</h2>
             <div class="typewriter" id="typewriter" style="display: none;">
                 <p>I am a web developer with a BSc in Computer Science.</p>
                 <p>passionate about creating beautiful websites.</p>
                 <p>My skills include HTML, CSS, JavaScript, and more.</p>
-                <p>In addition, I am also proficient in data science and machine learning</p> 
+                <p>In addition, I am also proficient in data science and machine learning</p>
                 <p>python and C programming</p>
             </div>
             <ul class="cv">
-                <li><a href="https://drive.google.com/file/d/1wkeUVKy09XYjKXMq2URdtOQ0dh_E9GUI/view?usp=sharing" target="_blank">my cv</a></li>
+                <li><a href="https://drive.google.com/file/d/1wkeUVKy09XYjKXMq2URdtOQ0dh_E9GUI/view?usp=sharing"
+                        target="_blank">my cv</a></li>
             </ul>
         </div>
-        <img src="space-man.png" alt="Your description" class="space-man">  
-        <img src="spidey.gif" alt="Your description" class="spidey">  
+        <img src="space-dude.png" alt="Your description" class="space-man" id="spaceMan">
+        <img src="spidey.gif" alt="Your description" class="spidey">
     </section>
-    
+
     <section id="portfolio">
         <h2 class="wavy">Portfolio</h2>
         <div class="projects-container" id="projects">
@@ -802,17 +1021,18 @@
             </div>
         </div>
     </section>
-         
-    
+
+
     <section id="contact">
-        <h2 class="wavy">contact me</h2>
+        <h2 class="wavy">Contact Me</h2>
         <!--<p>You can reach out to me through the following channels:</p>-->
         <ul class="contact-links">
             <li>
-                <a href="https://www.linkedin.com/in/tomer-zamir-" target="_blank"><img src="linkedin.png" alt="Linkedin"></a>
+                <a href="https://www.linkedin.com/in/tomer-zamir-" target="_blank"><img src="linkedin.png"
+                        alt="Linkedin"></a>
                 <a href="https://github.com/tomerzamir" target="_blank" style="margin-left: 10px;">
                     <img src="github.png" alt="Github" style="width: 52px; height: auto;">
-                </a>                
+                </a>
             </li>
         </ul>
         <div class="contact-form">
@@ -852,4 +1072,5 @@
         });
     </script>
 </body>
+
 </html>
