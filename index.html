@@ -20,7 +20,7 @@
             margin: 0;
             padding: 0;
             scroll-behavior: smooth; /* Smooth scrolling behavior */
-            background-color: #231e1f; /* Dark background color */
+            background-color: #0892d0; 
             color: #fff; /* Light text color */
         }
         /* Styles for sections */
@@ -34,71 +34,6 @@
             margin-bottom: 24px;
         }
         
-        /* Adjustments for screens less than or equal to 600px wide */
-        @media only screen and (max-width: 600px) {
-            body {
-                font-size: 16px; /* Adjust font size for better readability */
-                 background-color: #0892d0;
-            }
-            nav {
-                padding: 10px 0; /* Increase padding for easier tapping */
-            }
-            nav a {
-                padding: 10px; /* Increase padding for easier tapping */
-                font-size: 16px; /* Adjust font size for better readability */
-            }
-            section {
-                height: auto; /* Remove fixed height for better content display */
-                margin-bottom: 42px !important;
-            }
-            .contact-form input[type="text"],
-            .contact-form input[type="email"],
-            .contact-form textarea {
-                width: 90%; /* Adjust input field width for smaller screens */
-                margin: 10px auto; /* Center input fields */
-            }
-            .contact-form input[type="submit"] {
-                width: 90%; /* Adjust button width for smaller screens */
-            }
-            .footer {
-                font-size: 14px; /* Adjust font size for better readability */
-            }
-            .pacme img {
-                width: 30vw; /* Adjust width as needed */
-                height: auto; /* Maintain aspect ratio */
-            }
-            #myGIF {
-                width: 30vw;  /* Adjust the width as needed for mobiles */
-                height: auto;  /* Maintain aspect ratio */
-            }
-
-            /* Adjust size of about me section */
-            #about {
-                font-size: 16px; /* Adjust font size for better readability */
-                max-width: 90vh; /* Limit maximum width of the about section */
-                max-height: 66vh;  /* Adjust the height as needed */
-                margin: 0 auto; /* Center the about section */
-            }
-            #about p {
-                font-size: 14px;  /* Adjust font size for mobiles */
-            }
-            .projects-container {
-                flex-direction: column;
-                align-items: center !important;
-                display: flex;
-                justify-content: center !important;
-            }
-            .project-widget {
-                width: 94% !important; /* Set to 90% of the container width with some margin */
-                margin-bottom: 20px; /* Add some bottom margin */
-                margin: auto !important;
-
-            }
-            .project-widget:hover {
-                transform: translateY(-5px) scale(1.02) !important; 
-                transition-duration: 0.242s !important;
-            }
-        }
         h2 {
             font-size: 2em;
             font-family: "museomoderno", sans-serif;
@@ -123,12 +58,11 @@
         }
         nav a:hover {
             background-color: rgba(18, 18, 18, 0.5); /* Darker background color on hover */
-            /* font-weight: bold; */
-            transform: scale(1.2);
+            font-weight: bold;
+            /* transform: scale(1.2); */
         }
         /* Contact form styles */
-        .contact-form {
-            
+        .contact-form {     
             max-width: 800px;
             margin: 0 auto;
             margin-bottom: 0px;
@@ -166,7 +100,7 @@
         .contact-form input[type="submit"]:hover {
             background-color: #0056b3; /* Darker button color on hover */
             font-weight: bold;
-            transform: scale(1.066);
+            transform: scale(0.9);
         }
         .contact-form label {
             font-weight: bold;
@@ -190,8 +124,8 @@
             transition: scale 0.42s ease;
         }
         .contact-links img {
-            width: 36px;
-            height: 36px;
+            width: 42px;
+            height: 42px;
             transition: transform 0.3s ease;
         }
         .contact-links a:hover {
@@ -240,11 +174,11 @@
             background-image: url("kurzgesagt.jpg");
 
             /* Set a specific height */
-            min-height: 420px; 
+            height: 360px; 
 
             /* Create the parallax scrolling effect */
             background-attachment: fixed;
-            background-position: center;
+            background-position: center top -300px;
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -387,8 +321,10 @@
             white-space: break-spaces; /*force line breaks where necessary to fit the content within the element's width.*/
             margin: 0 auto; /* Gives that scrolling effect as the typing happens */
             letter-spacing: .15em; /* Adjust as needed */
-            display: grid;
-            max-width: 95%;
+            /* display: grid; */
+            max-width: 100%;
+            display: flex;
+            flex-wrap: nowrap;
         }
         .typewriter-mobile p {
             display: grid; /* Ensure each paragraph stays together */
@@ -416,11 +352,11 @@
 
         /* Animation applied when start-typing class is added */
         .typewriter.start-typing {
-            animation: typing 3.5s steps(42, end), blink-caret .75s step-end 3.5s forwards;
+            animation: typing 1.5s steps(42, end), blink-caret .75s step-end 3.5s forwards;
             /* Adjust timing and steps as needed */
         }
         .typewriter-mobile.start-typing{
-            animation: typing 3.5s steps(42, end), blink-caret .75s step-end 3.5s forwards;
+            animation: typing 1.5s steps(42, end), blink-caret .75s step-end 3.5s forwards;
             /* Adjust timing and steps as needed */
         }
 
@@ -431,9 +367,62 @@
             position: relative;
             color: #FFA500;
         }
-        #about{
-            margin-bottom: 0;
+        #about {
+            text-align: center;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 0px;
         }
+
+        .about-content {
+            /* max-width: calc(50% - 20px); */
+            max-width: 100%;
+            margin-top: 20px; /* Add margin to separate from the top */
+        }
+
+        /* .astronaut-container {
+            max-width: calc(50% - 20px);
+            display: flex;
+            justify-content: center; 
+            position: relative;
+        } */
+
+        .space-man {
+            max-width: 20%; /* Adjust the width of the image */
+            height: auto;
+            animation: slideRight 1.6s ease forwards;
+            position: absolute; /* Position the image */
+            top: 420px;
+            left: 50%; /* Align the left side of the image to the center horizontally */
+            transform: translateX(-50%); /* Adjust the image position to center it horizontally */
+        }
+        .spidey {
+            max-width: 10%; /* Adjust the width of the image */
+            height: auto;
+            position: absolute; /* Position the image */
+            top: 360px;
+            left: 0%; /* Align the left side of the image to the center horizontally */
+        }
+
+        @keyframes slideRight {
+            0% {
+                transform: translateX(0%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        @keyframes slideUp {
+            0% {
+                transform: translateY(0%);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+        
 
         /*portfolio widgets:*/
         /* Apply animation when the widget becomes visible */
@@ -525,30 +514,121 @@
             opacity: 1; /* Show details on hover */
             transition-duration: 0.242s !important; 
         }
-        /* Navigation buttons */
-        .nav-button {
-            background-color: transparent;
-            border: none;
-            color: #333; /* Button color */
-            font-size: 24px; /* Button size */
-            cursor: pointer;
-            position: absolute;
-            top: 50%; /* Position vertically centered */
-            transform: translateY(-50%);
-            z-index: 2; /* Ensure buttons are above project widgets */
-        }
 
-        .prev {
-            left: 10px; /* Position the previous button to the left */
-        }
+        /* Adjustments for screens less than or equal to 600px wide */
+        @media only screen and (max-width: 600px) {
+            body {
+                font-size: 16px; /* Adjust font size for better readability */
+            }
+            nav {
+                padding: 10px 0; /* Increase padding for easier tapping */
+            }
+            nav a {
+                padding: 10px; /* Increase padding for easier tapping */
+                font-size: 16px; /* Adjust font size for better readability */
+            }
+            section {
+                height: auto; /* Remove fixed height for better content display */
+                margin-bottom: 42px !important;
+            }
+            .contact-form input[type="text"],
+            .contact-form input[type="email"],
+            .contact-form textarea {
+                width: 90%; /* Adjust input field width for smaller screens */
+                margin: 10px auto; /* Center input fields */
+            }
+            .contact-form input[type="submit"] {
+                width: 90%; /* Adjust button width for smaller screens */
+            }
+            .footer {
+                font-size: 14px; /* Adjust font size for better readability */
+            }
+            .pacme img {
+                width: 30vw; /* Adjust width as needed */
+                height: auto; /* Maintain aspect ratio */
+            }
+            #myGIF {
+                width: 30vw;  /* Adjust the width as needed for mobiles */
+                height: auto;  /* Maintain aspect ratio */
+            }
 
-        .next {
-            right: 10px; /* Position the next button to the right */
+            /* Adjust size of about me section */
+            #about {
+                font-size: 16px; /* Adjust font size for better readability */
+                max-width: 90vh; /* Limit maximum width of the about section */
+                max-height: 66vh;  /* Adjust the height as needed */
+                margin: 0 auto; /* Center the about section */
+                margin-bottom: 88px !important;                
+            }
+            #about p {
+                font-size: 14px;  /* Adjust font size for mobiles */
+            }
+            .projects-container {
+                flex-direction: column;
+                align-items: center !important;
+                display: flex;
+                justify-content: center !important;
+                padding: 20px !important;
+                margin-bottom: 20px !important;
+            }
+            .project-widget {
+                width: 100% !important; /* Set to 90% of the container width with some margin */
+                
+                margin: auto !important;
+                box-sizing: border-box; /* Ensure padding and border are included in the width */
+                padding: 2px;
+            }
+            .project-widget:hover {
+                transform: translateY(-5px) scale(1.02) !important; 
+                transition-duration: 0.242s !important;
+            }
+            .space-man {
+                display: none;
+                animation: slideUp 1.6s ease forwards;
+                top: 520px;
+                left: 75%;
+            }
+            .parallax {
+                min-height: 420px;
+                background-position: center;
+            }
+            .spidey {
+                max-width: 30%; /* Adjust the width of the image */
+                height: auto;
+                position: absolute; /* Position the image */
+                top: 420px;
+                left: 0%; /* Align the left side of the image to the center horizontally */
+            }
         }
-
 
     </style>
       <!-- Your JavaScript code -->
+    <script>
+        function startTypewriterAnimation() {
+            document.getElementById('typewriter').style.display = 'grid';
+            document.querySelector('.typewriter').classList.add('start-typing');
+        }
+        function startTypewriterMobile() {
+            document.getElementById('typewriter').className = 'typewriter-mobile';
+            document.getElementById('typewriter').style.display = 'grid';
+            document.querySelector('.typewriter-mobile').classList.add('start-typing');
+        }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            function isMobileDevice() {
+                return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            }
+            // Check if the device is mobile
+            if (isMobileDevice()) {
+                // If it's a mobile device, start the animation immediately
+                startTypewriterMobile();
+            }
+
+           startTypewriterAnimation(); // Delay start of typewriter animation by 500 milliseconds
+        });
+
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
         function handleIntersection(entries, observer) {
@@ -596,7 +676,10 @@
         });
     </script>
     
-    <script>
+    
+    
+<!--script for the old typewriter after scrolling:-->
+    <!-- <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Function to check if the device is a mobile
             function isMobileDevice() {
@@ -645,14 +728,14 @@
                 }
             });
         });
-    </script>
+    </script> -->
     
 
 </head>
 <body>
     
     <nav>
-        <a href="#home" onclick="scrollToTop()">Home</a>
+        <a href="#home" onclick="scrollToTop()">↑</a>
         <a href="#about" id="ab">About</a>
         <a href="#portfolio">Portfolio</a>
         <a href="#contact">Contact</a>
@@ -662,65 +745,31 @@
           window.scrollTo({ top: 0, behavior: "smooth" });
         }
     </script>
+    
+    <!-- <section class="parallax"></section> -->
     <section class="parallax"></section>
     <section id="about">
-        <h2 class="wavy">About Me</h2>
-        <div class="typewriter" id="typewriter" style="display: none;">
-            <p></p>
-            <p>I am a web developer with a BSc in Computer Science.</p>
-            <p>passionate about creating beautiful websites.</p>
-            <p>My skills include HTML, CSS, JavaScript, and more.</p>
-            <p>In addition, I am also proficient in data science and machine learning</p> 
-            <p>python and C programming</p>
+        <div class="about-content">
+            <h2>Hello!</h2>
+            <h2 class="wavy">About Me</h2>
+            <div class="typewriter" id="typewriter" style="display: none;">
+                <p>I am a web developer with a BSc in Computer Science.</p>
+                <p>passionate about creating beautiful websites.</p>
+                <p>My skills include HTML, CSS, JavaScript, and more.</p>
+                <p>In addition, I am also proficient in data science and machine learning</p> 
+                <p>python and C programming</p>
+            </div>
+            <ul class="cv">
+                <li><a href="https://drive.google.com/file/d/1wkeUVKy09XYjKXMq2URdtOQ0dh_E9GUI/view?usp=sharing" target="_blank">my cv</a></li>
+            </ul>
         </div>
-        <ul class="cv">
-            <li><a href="https://drive.google.com/file/d/1wKyYmwXRTvIxQhwYcJ0jRzVcEhv7sh2K/view?usp=sharing" target="_blank">my cv</a></li>
-        </ul>
+        <img src="space-man.png" alt="Your description" class="space-man">  
+        <img src="spidey.gif" alt="Your description" class="spidey">  
     </section>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const projectWidgets = document.querySelectorAll('.project-widget');
-            const container = document.querySelector('.projects-container');
-            const prevButton = document.querySelector('.nav-button.prev');
-            const nextButton = document.querySelector('.nav-button.next');
     
-            let currentIndex = 0;
-    
-            // Function to move to the previous widget
-            function movePrev() {
-                if (currentIndex > 0) {
-                    currentIndex--;
-                    scrollToCurrentWidget();
-                }
-            }
-    
-            // Function to move to the next widget
-            function moveNext() {
-                if (currentIndex < projectWidgets.length - 1) {
-                    currentIndex++;
-                    scrollToCurrentWidget();
-                }
-            }
-    
-            // Function to scroll to the current widget
-            function scrollToCurrentWidget() {
-                const widget = projectWidgets[currentIndex];
-                const offsetLeft = widget.offsetLeft;
-                container.scrollTo({
-                    left: offsetLeft,
-                    behavior: 'smooth'
-                });
-            }
-    
-            // Event listeners for navigation buttons
-            prevButton.addEventListener('click', movePrev);
-            nextButton.addEventListener('click', moveNext);
-        });
-    </script>
     <section id="portfolio">
         <h2 class="wavy">Portfolio</h2>
         <div class="projects-container" id="projects">
-            <button class="nav-button prev">&lt;</button>
             <div class="project-widget">
                 <a href="https://github.com/tomerzamir/voice-processing/tree/main" target="_blank">
                     <img src="voice.png" alt="Project 1">
@@ -748,7 +797,6 @@
                     <p>Game developed with Unity in C++</p>
                 </div>
             </div>
-            <button class="nav-button next">&gt;</button>
         </div>
     </section>
          
@@ -759,7 +807,9 @@
         <ul class="contact-links">
             <li>
                 <a href="https://www.linkedin.com/in/tomer-zamir-" target="_blank"><img src="linkedin.png" alt="Linkedin"></a>
-                <a href="https://github.com/tomerzamir" target="_blank" style="margin-left: 10px;"><img src="github.png" alt="Linkedin"></a>
+                <a href="https://github.com/tomerzamir" target="_blank" style="margin-left: 10px;">
+                    <img src="github.png" alt="Github" style="width: 52px; height: auto;">
+                </a>                
             </li>
         </ul>
         <div class="contact-form">
@@ -777,9 +827,9 @@
     </section>
     <footer class="footer">
         <!-- <img src="pacmans.gif" class="pac-man-small" alt="Pac-Man"> -->
-        <span style="display: inline-block;">
+        <!-- <span style="display: inline-block;">
             <img src="pacmans.gif" alt="Your GIF description" id="myGIF" class="pacme">
-        </span>
+        </span> -->
         <p>ⓒ Designed by Tomer Zamir</p>
     </footer>
     <script>
