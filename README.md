@@ -2,6 +2,8 @@
 
 developed with html css and JavaScript
 
+Visit [here](https://tomerzamir.github.io/).
+
 ## demos
 
 | Desktop Version                                  | Mobile Version                                    |
