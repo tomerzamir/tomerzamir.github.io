@@ -685,6 +685,7 @@
             transition-duration: 0.242s !important;
         }
         /* Adjustments for smaller windows */
+
         @media only screen and (max-width: 900px) {
             .typewriter {
                 white-space: normal;
@@ -704,7 +705,8 @@
         /* Adjustments for big screens */
         @media only screen and (min-width: 690px) {
             .space-man-lower {
-                top: 160px;
+                top: 140px;
+                height: 140px;
             }
         }
 
@@ -748,7 +750,7 @@
             section {
                 height: auto;
                 /* Remove fixed height for better content display */
-                margin-bottom: 42px !important;
+                margin-bottom: 2px !important;
             }
             .typewriter{
                 white-space: normal; 
@@ -772,12 +774,13 @@
                 font-size: 14px;
                 /* Adjust font size for better readability */
             }
-
+/* 
             .pacme img {
                 width: 30vw;
-                /* Adjust width as needed */
                 height: auto;
-                /* Maintain aspect ratio */
+            } */
+            .space-man-lower {
+                top: 60px;
             }
 
             #myGIF {
@@ -826,30 +829,10 @@
                 transform: translateY(-5px) scale(1.02) !important;
                 transition-duration: 0.242s !important;
             }
-
-            .space-man {
-                /* Initial position */
-                position: absolute;
-                top: 2040px;
-                left: 22%;
-                /* transition: slideLeft 1.6s ease; */
+            #portfolio{
+                padding-bottom: 0px;
             }
 
-            /* .slide-left {
-                animation: slideLeft 1.6s ease forwards;
-            }
-
-        @keyframes slideLeft {
-            0% {
-                transform: translateX(0%);
-            }
-
-            100% {
-                transform: translateX(-60%);
-            }
-        }
-
-        */
             .parallax {
                 min-height: 360px;
                 background-position: center;
@@ -1040,7 +1023,7 @@
                         target="_blank">my cv</a></li>
             </ul>
         </div>
-        <img src="space-dude.png" alt="space-man hovering, holding a mug of hot coffee" class="space-man" id="spaceMan">
+        <img src="space-dude.png" alt="space-man hovering, holding a mug of hot coffee" class="space-man">
         <img src="spidey.gif" alt="spider-man coming sliding down from the banner shooting  webs" class="spidey">
     </section>
 
