@@ -395,8 +395,7 @@
             /* Ensures the content is not revealed until the animation */
             border-right: .15em solid orange;
             /* The typewriter cursor */
-            /*white-space: nowrap; /* Keeps the content on a single line */
-            white-space: nowrap;
+            white-space: nowrap;/ * Keeps the content on a single line */
             /*force line breaks where necessary to fit the content within the element's width.*/
             margin: 0 auto;
             /* Gives that scrolling effect as the typing happens */
@@ -520,6 +519,14 @@
             /* Align the left side of the image to the center horizontally */
             transform: translateX(-50%);
             /* Adjust the image position to center it horizontally */
+        }
+        .space-man-lower {
+            max-width: 20%;
+            height: auto;
+            animation: slideUp 1.6s ease forwards;
+            position: relative;
+            margin: auto;
+            transform: translateX(-50%);
         }
 
         .spidey {
@@ -677,9 +684,50 @@
             /* Show details on hover */
             transition-duration: 0.242s !important;
         }
+        /* Adjustments for smaller windows */
+        @media only screen and (max-width: 900px) {
+            .typewriter {
+                white-space: normal;
+            }
+        }
 
-        /* Adjustments for screens less than or equal to 600px wide */
-        @media only screen and (max-width: 600px) {
+        @media only screen and (max-width: 1200px) {
+            .space-man {
+                display: none;
+            }
+
+            .about-content {
+                margin: auto;
+            }
+        }
+
+        /* Adjustments for big screens */
+        @media only screen and (min-width: 690px) {
+            .space-man-lower {
+                top: 160px;
+            }
+        }
+
+        @media only screen and (min-width: 1200px) {
+            .space-man-lower {
+                display: none;
+            }
+        }
+
+        @media only screen and (min-width: 1400px) {
+            #about {
+                margin-bottom: 10px;
+            }
+            section {
+                margin-bottom: 20px;
+            }
+            .about-content {
+                margin-left: 200px;
+            }
+        }
+
+        /* Adjustments for screens less than or equal to 600px wide - mobile devices */
+        @media only screen and (max-width: 690px) {
             body {
                 font-size: 16px;
                 /* Adjust font size for better readability */
@@ -702,6 +750,9 @@
                 /* Remove fixed height for better content display */
                 margin-bottom: 42px !important;
             }
+            .typewriter{
+                white-space: normal; 
+            }
 
             .contact-form input[type="text"],
             .contact-form input[type="email"],
@@ -710,9 +761,6 @@
                 /* Adjust input field width for smaller screens */
                 margin: 10px auto;
                 /* Center input fields */
-            }
-            .typewriter{
-                white-space: normal; 
             }
 
             .contact-form input[type="submit"] {
@@ -762,17 +810,15 @@
                 align-items: center !important;
                 display: flex;
                 justify-content: center !important;
-                padding: 10px !important;
+                /* padding: 10px !important; */
                 margin-bottom: 20px !important;
                 width: 100% !important;
             }
 
             .project-widget {
                 width: 100% !important;
-                /* Set to 90% of the container width with some margin */
                 margin: auto !important;
                 box-sizing: border-box;
-                /* Ensure padding and border are included in the width */
                 padding: 1px;
             }
 
@@ -994,12 +1040,12 @@
                         target="_blank">my cv</a></li>
             </ul>
         </div>
-        <img src="space-dude.png" alt="Your description" class="space-man" id="spaceMan">
-        <img src="spidey.gif" alt="Your description" class="spidey">
+        <img src="space-dude.png" alt="space-man hovering, holding a mug of hot coffee" class="space-man" id="spaceMan">
+        <img src="spidey.gif" alt="spider-man coming sliding down from the banner shooting  webs" class="spidey">
     </section>
 
     <section id="portfolio">
-        <h2 class="wavy">Portfolio</h2>
+        <h2 class="wavy">My Recent Work</h2>
         <div class="projects-container" id="projects">
             <div class="project-widget">
                 <a href="https://github.com/tomerzamir/voice-processing/tree/main" target="_blank">
@@ -1033,6 +1079,7 @@
 
 
     <section id="contact">
+        <img src="space-dude.png" alt="space-man hovering, holding a mug of hot coffee" class="space-man-lower">
         <h2 class="wavy">Contact Me</h2>
         <!--<p>You can reach out to me through the following channels:</p>-->
         <ul class="contact-links">
