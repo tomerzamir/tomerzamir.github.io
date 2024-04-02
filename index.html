@@ -24,6 +24,7 @@
             background-color: #0892d0;
             color: #fff;
             /* Light text color */
+            cursor: url('cursor.cur'), auto !important;
         }
 
         /* Styles for sections */
@@ -35,7 +36,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            margin-bottom: 120px;
+            margin-bottom: 60px;
             padding: 20px;
         }
 
@@ -216,10 +217,10 @@
             transform: scale(1.1);
         }
 
-
+/* 
         .image_right {
             float: right !important;
-        }
+        } */
 
         .parallax {
             /* The image used */
@@ -231,68 +232,10 @@
             padding: 0px;
             /* Create the parallax scrolling effect */
             background-attachment: fixed;
-            background-position: center top -142px;
+            background-position: center top -152px;
             background-repeat: no-repeat;
             background-size: cover;
         }
-
-        .pac-man-container {
-            position: absolute;
-            /* Position relative to the footer */
-            bottom: 0;
-            /* Align to the bottom of the footer */
-            width: 100%;
-            /* Ensure full width */
-            text-align: center;
-            /* Center the .pac-man element horizontally */
-        }
-
-        .pac-man {
-            /* Set size */
-            width: 20%;
-            height: 20%;
-
-            /* Background properties */
-            background-image: url("pacmans.gif");
-            background-repeat: no-repeat;
-            background-size: contain;
-
-            /* Animation */
-            animation: movePacman 10s linear infinite;
-            /* Adjust duration and timing function */
-        }
-
-        .pac-man-small {
-            /* Set a specific height */
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 20%;
-            height: 20%;
-        }
-
-        .pacme {
-            /* position: absolute; */
-            /* vertical-align: top; */
-            /* width: 30%;
-            height: 40%; */
-            width: 20vw;
-            /* Adjust the width as needed for mobiles */
-            height: auto;
-            /* Maintain aspect ratio */
-            margin: 0px;
-        }
-
-        /* .pacme img:hover {
-            animation: moveHorizontal 7s linear infinite;
-        } */
-
-        /* #myGIF {
-            position: absolute;
-            animation: moveHorizontal 7s linear infinite;
-            width: 30%;
-            height: 40%;
-        } */
 
         @keyframes moveHorizontal {
 
@@ -319,9 +262,12 @@
             margin-top: 0px;
             font-family: 'Lobster', cursive;
             font-weight: 100;
-            margin-top: 0;
-            /* Remove the bottom margin */
+            position: relative;
+            bottom: 0; /* Ensure the footer stays at the bottom of the viewport */
+            width: 100%; /* Make sure the footer spans the entire width */
+            padding-top: 0px;
         }
+
 
         @keyframes signatureAnimation {
             0% {
@@ -423,11 +369,10 @@
             margin: 0 auto;
             /* Gives that scrolling effect as the typing happens */
             letter-spacing: .15em;
-            /* Adjust as needed */
-            /* display: grid; */
             max-width: 100%;
             display: flex;
             flex-wrap: nowrap;
+
         }
 
         .typewriter-mobile p {
@@ -486,7 +431,7 @@
         #about {
             text-align: center;
             display: flex;
-            align-items: flex-start;
+            align-items:flex-start;
             justify-content: space-between;
             padding: 0px;
             margin-bottom: 160px;
@@ -560,7 +505,6 @@
             }
         }
 
-
         /*portfolio widgets:*/
         /* Apply animation when the widget becomes visible */
 
@@ -574,6 +518,12 @@
             /* Hide any content that overflows */
             padding-bottom: 20px;
             /* Add some bottom padding to prevent the last widget from being partially cut off */
+            background-image:url('portfolio-back.jpg');
+            background-size: cover;
+        }
+        #portfolio h2 {
+            color: #ffcc00; /* Yellow text color */
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7); /* Stronger text shadow */
         }
 
         .projects-container {
@@ -593,7 +543,7 @@
             /* Set a fixed width for each widget */
             height: 320px;
             /* Set a fixed height for each widget */
-            border-radius: 10px;
+            /* border-radius: 10px; */
             overflow: hidden;
             /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
             transition: transform 0.3s ease, opacity 0.4s ease;
@@ -626,6 +576,7 @@
             width: 100%;
             height: 80%;
             object-fit: fill;
+            border-radius: 20px;
             /* Ensure the entire image is shown without stretching */
         }
 
@@ -634,12 +585,13 @@
             /* Combine both transformations */
             transition-duration: 0.242s !important;
             /* Apply transition duration */
+            cursor: url('cursor.cur'), auto !important;
         }
 
 
         .project-details {
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(235, 0, 0, 0.8);
             /* Semi-transparent background color */
             color: #fff;
             /* Text color */
@@ -655,12 +607,15 @@
             /* Add this line */
             right: 0;
             /* Add this line */
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
         }
 
         .project-widget:hover .project-details {
             opacity: 1;
             /* Show details on hover */
             transition-duration: 0.242s !important;
+            cursor: url('cursor.cur'), auto !important;
         }
 
         .project-details h3 {
@@ -679,12 +634,13 @@
             transition-duration: 0.3s !important;
         }
 
-        .project-widget:hover .project-details {
-            opacity: 1;
-            /* Show details on hover */
-            transition-duration: 0.242s !important;
-        }
         /* Adjustments for smaller windows */
+        @media only screen and (min-width: 690px) {
+            .space-man-lower {
+                top: 140px;
+                height: 140px;
+            }
+        }
 
         @media only screen and (max-width: 900px) {
             .typewriter {
@@ -701,32 +657,96 @@
                 margin: auto;
             }
         }
-
-        /* Adjustments for big screens */
-        @media only screen and (min-width: 690px) {
-            .space-man-lower {
-                top: 140px;
-                height: 140px;
+        @media only screen and (max-height: 400px){
+            .footer{
+                display: none;
             }
-        }
-
-        @media only screen and (min-width: 1200px) {
             .space-man-lower {
                 display: none;
             }
         }
+        @media only screen and (max-height: 639px){
+            .footer{
+                padding-top:10%;
+            }
+        }
 
-        @media only screen and (min-width: 1400px) {
+        /* Adjustments for big screens */
+        @media only screen and (min-width: 1200px) and (min-height: 600px){
+            .space-man-lower {
+                display: none;
+            }
+            #contact {
+                justify-content: center;
+                flex-direction: column;
+                display: flex;
+                align-items: center; /* This centers vertically */
+                flex-direction: column; /* Optional: Keeps content stacked if needed */
+                background-image: url('frame.png');
+                background-size: contain;
+                background-repeat: no-repeat; /* Prevent the background from repeating */
+                background-position: center center; /* Center the background image */
+                background-size: 720px 800px; /* Adjust width and maintain aspect ratio for height */
+                padding: 80px; /* Add padding to the background image */
+            }
+        }
+        @media only screen and (min-width: 1200px) {
+            .space-man-lower {
+                display: none;
+            }
+
+        }
+
+        @media only screen and (min-width: 1400px) and (min-height: 800px){
             #about {
-                margin-bottom: 10px;
+                margin-bottom: 0px;
             }
             section {
-                margin-bottom: 20px;
+                margin-bottom: 0px;
+                justify-content: space-around;
             }
             .about-content {
                 margin-left: 200px;
             }
+            .parallax {
+                background-image: url(kurzgesagt.jpg);
+                height: 420px;
+                margin-bottom: 24px !important;
+                padding: 0px;
+                background-attachment: fixed;
+                background-position: center top -210px;
+            }
+            .spidey {
+                top: 420px;
+            }
+            .space-man {
+                max-width: 18%;
+                /* Adjust the width of the image */
+                height: auto;
+                animation: slideRight 1.6s ease forwards;
+                position: absolute;
+                /* Position the image */
+                top: 555px;
+                left: 50%;
+                /* Align the left side of the image to the center horizontally */
+                transform: translateX(-50%);
+                /* Adjust the image position to center it horizontally */
+            }
+            #contact {
+                justify-content: center;
+                flex-direction: column;
+                display: flex;
+                align-items: center; /* This centers vertically */
+                background-image: url('frame.png');
+                background-size: contain;
+                background-repeat: no-repeat; /* Prevent the background from repeating */
+                background-position: center center; /* Center the background image */
+                background-size: 720px 800px; /* Adjust width and maintain aspect ratio for height */
+                padding: 60px; /* Add padding to the background image */
+            }
+
         }
+
 
         /* Adjustments for screens less than or equal to 600px wide - mobile devices */
         @media only screen and (max-width: 690px) {
@@ -828,6 +848,10 @@
             .project-widget:hover {
                 transform: translateY(-5px) scale(1.02) !important;
                 transition-duration: 0.242s !important;
+                /* cursor: url('cursor.cur'), auto !important; */
+                .cursor {
+                    cursor: url("cursor.cur");
+                }
             }
             #portfolio{
                 padding-bottom: 0px;
@@ -836,7 +860,7 @@
             .parallax {
                 min-height: 360px;
                 background-position: center;
-                background-position: center top -100px;
+                background-position: center top -60px;
             }
 
             .spidey {
@@ -933,8 +957,6 @@
             });
         });
     </script>
-
-
 
     <!--script for the old typewriter after scrolling:-->
     <!-- <script>
@@ -1044,7 +1066,7 @@
                     <img src="IoT.png" alt="Project 2">
                 </a>
                 <div class="project-details">
-                    <h3>IoT project</h3>
+                    <h3>IoT Application</h3>
                     <p>implemented using MQTT in Python</p>
                 </div>
             </div>
