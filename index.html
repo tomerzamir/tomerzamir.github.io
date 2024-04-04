@@ -486,7 +486,7 @@
             text-decoration-style: wavy;
             text-decoration-color: rgba(72, 77, 87, 0.616);
             position: relative;
-            color: #ea3753;
+            color: #ea3753; /*#ffcc00 */
             font-size:32px;
         }
   
@@ -499,6 +499,11 @@
             margin-bottom: 160px;
         }
 
+        /* #about .about-content .wavy {
+            text-shadow: 0 2px 4px #0476d954;
+            -webkit-text-stroke: 1px rgba(4, 118, 217, 0); 
+        } */
+
         .about-content {
             /* max-width: calc(50% - 20px); */
             max-width: 100%;
@@ -506,13 +511,6 @@
             margin-left: 42px;
             /* Add margin to separate from the top */
         }
-
-        /* .astronaut-container {
-            max-width: calc(50% - 20px);
-            display: flex;
-            justify-content: center; 
-            position: relative;
-        } */
 
         .space-man {
             max-width: 20%;
@@ -699,10 +697,6 @@
             /* transition: opacity 0.96s ease;
             transition: filter 0.96s ease; */
         }
-        /* .other-sections-darken {
-            opacity: 0.5 !important;
-            transition-duration: 0.3s !important;
-        } */
 
         .back-img{
             background-image: url('contact-back.jpg');
@@ -809,6 +803,7 @@
         @media only screen and (max-width: 690px) {
             body {
                 font-size: 16px;
+                /* background-color: #0892d0; */
                 /* Adjust font size for better readability */
             }
 
@@ -843,7 +838,14 @@
             }
 
             .contact-form input[type="submit"] {
-                width: 90%;
+                width: 70%;
+                background-color: #ff3939;
+                opacity: 1;
+                box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+                /* Adjust button width for smaller screens */
+            }
+            .contact-form input[type="submit"]:hover{
+                background-color: #333;
                 /* Adjust button width for smaller screens */
             }
 
@@ -926,6 +928,7 @@
                 left: 0%;
                 /* Align the left side of the image to the center horizontally */
             }
+
         }
 
         .darken {
@@ -933,13 +936,10 @@
             opacity: 0.1;
         }
 
+
     </style>
     <!-- Your JavaScript code -->
-    <!-- <script>
-        document.getElementById("spaceMan").addEventListener("click", function () {
-            this.classList.toggle("slideLeft");
-        });
-    </script> -->
+
     <script>
         function startTypewriterAnimation() {
             document.getElementById('typewriter').style.display = 'grid';
@@ -1187,7 +1187,7 @@
                 </a>
                 <div class="project-details">
                     <h3>Snowboarding Tony</h3>
-                    <p>Game developed with Unity in C++</p>
+                    <p>Web game developed with Unity in C++</p>
                 </div>
             </div>
             <div class="project-widget">
