@@ -163,6 +163,7 @@
             width: 42px;
             height: 42px;
             transition: transform 0.3s ease;
+            vertical-align: middle; Align the images vertically
         }
 
         .contact-links a:hover {
@@ -361,31 +362,24 @@
             font-weight: bold;
         }
 
-        .footer p::after {
+        /* .footer p::after {
             content: '';
             position: absolute;
             left: 35%;
-            /* Adjust the horizontal position of the wavy line */
             bottom: -2px;
-            /* Adjust the distance of the underline from the text */
             width: 30%;
-            /* Adjust the width of the wavy line */
             height: 2px;
-            /* Adjust the height of the wavy line */
             background-image: linear-gradient(to right, rgba(22, 86, 215, 0.626), rgba(14, 109, 193, 0.831),
                     rgba(92, 160, 238, 0.831), rgba(92, 160, 238, 0.9), rgba(14, 109, 193, 0.831),
                     rgba(22, 86, 215, 0.626));
-            /* Adjust the colors */
             transition: background-image 0.42s ease;
-            /* Add transition for smooth color change */
         }
 
         .footer p:hover::after {
             background-image: linear-gradient(to right, rgba(22, 86, 215, 0.9), rgba(14, 109, 193, 0.831),
                     rgba(92, 160, 238, 0.9), rgba(92, 160, 238, 0.9), rgba(14, 109, 193, 0.831),
                     rgba(22, 86, 215, 0.9));
-            /* Adjust the colors for the hover effect */
-        }
+        } */
 
         nav {
             text-align: center;
@@ -707,6 +701,7 @@
             background-repeat: no-repeat;
             opacity: 0.2;
             transition: opacity 0.96s ease; /* Add transition property */
+            height: 75vh;
         }
         .back-img:hover{
             opacity: 1;
@@ -936,6 +931,12 @@
             opacity: 0.1;
         }
 
+        nav a {
+            font-weight: normal; /* Set default font weight */
+        }
+        .bold {
+            font-weight: bold; /* Set font weight to bold */
+        }
 
     </style>
     <!-- Your JavaScript code -->
@@ -1060,83 +1061,47 @@
             observer.observe(contactSection);
         });
     </script>
-    <!-- <script>
+    <!--bolden nav bar a's-->
+    <script>
+        const homeLink = document.querySelector('a[href="#upArrow"]');
         document.addEventListener('DOMContentLoaded', function () {
-            var portfolioSection = document.getElementById('portfolio');
-            var lastSectionBackground = document.querySelector('.back-img');
-
-            portfolioSection.addEventListener('mouseenter', function () {
-                // Darken the background div when hovering over the portfolio section
-                lastSectionBackground.classList.add('darken');
-            });
-
-            portfolioSection.addEventListener('mouseleave', function () {
-                // Remove darkening when leaving the portfolio section
-                lastSectionBackground.classList.remove('darken');
-            });
-        });
-    </script> -->
-
-
-    <!--script for the old typewriter after scrolling:-->
-    <!-- <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Function to check if the device is a mobile
-            function isMobileDevice() {
-                return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-            }
-    
-            // Function to start typewriter animation
-            function startTypewriterAnimation() {
-                document.getElementById('typewriter').style.display = 'grid';
-                document.querySelector('.typewriter').classList.add('start-typing');
-            }
-            function startTypewriterMobile() {
-                document.getElementById('typewriter').className = 'typewriter-mobile';
-                document.getElementById('typewriter').style.display = 'grid';
-                document.querySelector('.typewriter-mobile').classList.add('start-typing');
-            }
-            // Check if the device is mobile
-            if (isMobileDevice()) {
-                // If it's a mobile device, start the animation immediately
-                startTypewriterMobile();
-            }
-    
-            var timeout; // Variable to store timeout reference
-    
-            document.addEventListener('scroll', function (e) {
-                var aboutSection = document.getElementById('about');
-                var topViewport = window.pageYOffset;
-                var bottomViewport = topViewport + window.innerHeight;
-                var topAboutSection = aboutSection.offsetTop;
-                var bottomAboutSection = topAboutSection + aboutSection.offsetHeight;
-    
-                // Check if about section is fully visible
-                if (topAboutSection >= topViewport && bottomAboutSection <= bottomViewport) {
-                    console.log("About section is fully visible.");
-                    // Clear previous timeout to prevent multiple triggers
-                    clearTimeout(timeout);
-                    // Set new timeout to trigger animation after a delay
-                    timeout = setTimeout(function() {
-                        console.log("Starting typewriter animation.");
-                        startTypewriterAnimation(); // Use the function to start animation
-                    }, 50); // Adjust delay duration (in milliseconds) as needed
-                } else {
-                    console.log("About section is not fully visible.");
-                    // Clear timeout if about section is no longer visible
-                    clearTimeout(timeout);
-                }
+            const sections = document.querySelectorAll('section');
+            sections.forEach(function(section) {
+                const observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        const navLink = document.querySelector('a[href="#' + entry.target.id + '"]');
+                        window.addEventListener('scroll', function() {
+                            // if (isAtTopOfPage()) {
+                            //     console.log('At the top of the page');
+                            //     homeLink.classList.add('active');
+                            // } 
+                            // else {
+                            if (navLink) {
+                                if (entry.isIntersecting) {
+                                    navLink.classList.add('active');
+                                } else {
+                                    navLink.classList.remove('active');
+                                }
+                            }
+                        });
+                    });
+                }, { threshold: 0.5 });
+                observer.observe(section);
             });
         });
-    </script> -->
-
-
+    </script>
+    
+    <style>
+        .active {
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
 
     <nav>
-        <a href="#home" onclick="scrollToTop()">↑</a>
+        <a href="#home" id="upArrow" onclick="scrollToTop()">↑</a>
         <a href="#about" id="ab">About</a>
         <a href="#portfolio">Portfolio</a>
         <a href="#contact">Contact</a>
@@ -1157,7 +1122,7 @@
                 <p>I am a software developer with a BSc in Computer Science.</p>
                 <p>Passionate about creating beautiful websites.</p>
                 <p>My skills include HTML, CSS and JavaScript.</p>
-                <p>In addition, I am also proficient in data science and deep learning,</p>
+                <p>In addition, I am proficient in data science and deep learning,</p>
                 <p>Python and C programming</p>
             </div>
             <ul class="cv">
@@ -1213,13 +1178,14 @@
             <!--<p>You can reach out to me through the following channels:</p>-->
             <ul class="contact-links">
                 <li>
-                    <a href="https://www.linkedin.com/in/tomer-zamir-" target="_blank"><img src="linkedin.png"
-                            alt="Linkedin"></a>
+                    <a href="https://www.linkedin.com/in/tomer-zamir-" target="_blank"><img src="linkedin.png" alt="Linkedin" style="width: 40px; height: 40px; vertical-align: middle;"></a>
                     <a href="https://github.com/tomerzamir" target="_blank" style="margin-left: 10px;">
-                        <img src="github.png" alt="Github" style="width: 52px; height: auto;">
+                        <img src="github.png" alt="Github" style="width: 52px; height: 52px;">
                     </a>
                 </li>
             </ul>
+            
+            
             <div class="contact-form">
                 <!--<h3>Contact Form</h3>-->
                 <form action="https://formspree.io/f/xdoqdplj" method="POST">
