@@ -21,7 +21,8 @@
             margin: 0;
             scroll-behavior: smooth;
             /* Smooth scrolling behavior */
-            background-color: #0476d9; /*#0892d0;*/
+            background-color: #0476d9;
+            /*#0892d0;*/
             color: #fff;
             /* Light text color */
             cursor: url('media/cursor.cur'), auto !important;
@@ -29,7 +30,7 @@
 
         /* Styles for sections */
         section {
-            height: 66vh;
+            height: 80vh;
             /* Set a fixed height for all sections */
             display: flex;
             flex-direction: column;
@@ -38,8 +39,7 @@
             text-align: center;
             margin-bottom: 60px;
             padding: 20px;
-}
-
+            /* flex-grow: 1; */
         }
 
         h2 {
@@ -76,9 +76,16 @@
             font-weight: bold;
             /* transform: scale(1.2); */
         }
+
+        #contact {
+            height: auto;
+        }
+
         #contact h2 {
-            color: #ffcc00; /* Yellow text color */
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7); /* Stronger text shadow */
+            color: #ffcc00;
+            /* Yellow text color */
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+            /* Stronger text shadow */
             text-decoration: underline wavy #0476d9;
         }
 
@@ -163,7 +170,8 @@
             width: 42px;
             height: 42px;
             transition: transform 0.3s ease;
-            vertical-align: middle; Align the images vertically
+            vertical-align: middle;
+            Align the images vertically
         }
 
         .contact-links a:hover {
@@ -197,6 +205,7 @@
             /* Ensure the li elements are displayed inline */
             margin: 0 auto;
             /* Center the li elements horizontally */
+            margin-top: 24px;
         }
 
         .play-button li a {
@@ -213,7 +222,8 @@
             /* Smooth transition */
             background: url('media/play-back.jpg') no-repeat center center;
             /* Set the background image */
-            background-size: cover; /* Adjust as per the image */
+            background-size: cover;
+            /* Adjust as per the image */
             box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
         }
 
@@ -243,14 +253,14 @@
             /* Ensure it spans the entire width */
         }
 
-        .cv li{
+        .cv li {
             display: inline-block;
             /* Ensure the li elements are displayed inline */
             margin: 0 auto;
             /* Center the li elements horizontally */
         }
 
-        .cv li a{
+        .cv li a {
             background-color: #333;
             /* Dark background color */
             color: #fff;
@@ -264,7 +274,8 @@
             transition: background-color 0.3s ease;
             /* Smooth transition */
         }
-        .play-button li:hover a{
+
+        .play-button li:hover a {
             background-image: "media/play-back.jpg";
         }
 
@@ -275,11 +286,11 @@
             /* Change the link color on hover */
         }
 
-        .cv li:hover{
+        .cv li:hover {
             transform: scale(1.1);
         }
 
-/* 
+        /* 
         .image_right {
             float: right !important;
         } */
@@ -325,9 +336,12 @@
             font-family: 'Lobster', cursive;
             font-weight: 100;
             position: relative;
-            bottom: 0; /* Ensure the footer stays at the bottom of the viewport */
-            width: 100%; /* Make sure the footer spans the entire width */
-            padding-top: 0px;
+            bottom: 0;
+            /* Ensure the footer stays at the bottom of the viewport */
+            width: 100%;
+            /* Make sure the footer spans the entire width */
+            padding-top: 0px !important;
+            height: 5vh;
         }
 
 
@@ -349,9 +363,11 @@
         }
 
         .footer p {
-            position: relative;
+            position: absolute;
             transition: color 0.42s ease, text-shadow 0.42s ease-in-out;
-            margin-top: 0;
+            /* margin-top: 0; */
+            bottom: 0;
+            width: 100%;
             /* Remove the bottom margin */
 
         }
@@ -392,7 +408,7 @@
         /* CSS */
         /* Base typewriter styles */
         .typewriter {
-            overflow:hidden;
+            overflow: hidden;
             /* Ensures the content is not revealed until the animation */
             border-right: .15em solid orange;
             /* The typewriter cursor */
@@ -402,7 +418,8 @@
             /* Gives that scrolling effect as the typing happens */
             letter-spacing: .15em;
             /* Adjust as needed */
-            display: inline-block; /* Change from grid to inline-block */
+            display: inline-block;
+            /* Change from grid to inline-block */
             max-width: 100%;
             font-family: 'MODERN TYPEWRITER', sans-serif;
             margin-left: 2px;
@@ -480,14 +497,15 @@
             text-decoration-style: wavy;
             text-decoration-color: rgba(72, 77, 87, 0.616);
             position: relative;
-            color: #ea3753; /*#ffcc00 */
-            font-size:32px;
+            color: #ea3753;
+            /*#ffcc00 */
+            font-size: 32px;
         }
-  
+
         #about {
             text-align: center;
             display: flex;
-            align-items:flex-start;
+            align-items: flex-start;
             justify-content: space-between;
             padding: 0px;
             margin-bottom: 160px;
@@ -519,6 +537,7 @@
             transform: translateX(-50%);
             /* Adjust the image position to center it horizontally */
         }
+
         .space-man-lower {
             max-width: 20%;
             height: auto;
@@ -571,14 +590,17 @@
             overflow-y: hidden;
             /* Hide any content that overflows */
             padding-bottom: 20px;
-            margin-bottom:0px;
+            margin-bottom: 0px;
             /* Add some bottom padding to prevent the last widget from being partially cut off */
-            background-image:url('media/portfolio-back.jpg');
+            background-image: url('media/portfolio-back.jpg');
             background-size: cover;
         }
+
         #portfolio h2 {
-            color: #ffcc00; /* Yellow text color */
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7); /* Stronger text shadow */
+            color: #ffcc00;
+            /* Yellow text color */
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+            /* Stronger text shadow */
         }
 
         .projects-container {
@@ -685,27 +707,31 @@
 
         .other-widgets-darken {
             opacity: 0.6 !important;
-            filter:blur(3.6px);
+            filter: blur(3.6px);
             /* Darken the other widgets */
             transition-duration: 0.3s !important;
             /* transition: opacity 0.96s ease;
             transition: filter 0.96s ease; */
         }
 
-        .back-img{
+        .back-img {
             background-image: url('media/contact-back.jpg');
-            background-size:cover;
+            background-size: cover;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             background-repeat: no-repeat;
             opacity: 0.2;
-            transition: opacity 0.96s ease; /* Add transition property */
-            height: 75vh;
+            transition: opacity 0.96s ease;
+            /* Add transition property */
+            /* height: 90vh; */
+            height: auto;
         }
-        .back-img:hover{
+
+        .back-img:hover {
             opacity: 1;
         }
+
         /* Adjustments for smaller windows */
         @media only screen and (min-width: 690px) {
             .space-man-lower {
@@ -720,7 +746,7 @@
             }
         }
 
-        @media only screen and (max-width: 1200px) {
+        @media only screen and (max-width: 1000px) {
             .space-man {
                 display: none;
             }
@@ -729,45 +755,52 @@
                 margin: auto;
             }
         }
-        @media only screen and (max-height: 400px){
-            .footer{
+
+        @media only screen and (max-height: 400px) {
+            .footer {
                 display: none;
             }
+
             .space-man-lower {
                 display: none;
             }
         }
-        @media only screen and (max-height: 639px){
-            .footer{
-                padding-top:10%;
+
+        @media only screen and (max-height: 639px) {
+            .footer {
+                padding-top: 10%;
             }
         }
 
         /* Adjustments for big screens */
-        @media only screen and (min-width: 1200px) and (min-height: 600px){
-            .space-man-lower {
-                display: none;
-            }
-
-        }
-        @media only screen and (min-width: 1200px) {
+        @media only screen and (min-width: 1200px) and (min-height: 600px) {
             .space-man-lower {
                 display: none;
             }
 
         }
 
-        @media only screen and (min-width: 1400px) and (min-height: 800px){
+        @media only screen and (min-width: 1000px) {
+            .space-man-lower {
+                display: none;
+            }
+
+        }
+
+        @media only screen and (min-width: 1400px) and (min-height: 800px) {
             #about {
                 margin-bottom: 0px;
             }
+
             section {
                 margin-bottom: 0px;
                 justify-content: space-around;
             }
+
             .about-content {
                 margin-left: 200px;
             }
+
             .parallax {
                 background-image: url(media/kurzgesagt.jpg);
                 height: 420px;
@@ -776,9 +809,11 @@
                 background-attachment: fixed;
                 background-position: center top -210px;
             }
+
             .spidey {
                 top: 420px;
             }
+
             .space-man {
                 max-width: 18%;
                 /* Adjust the width of the image */
@@ -819,8 +854,9 @@
                 /* Remove fixed height for better content display */
                 margin-bottom: 2px !important;
             }
-            .typewriter{
-                white-space: normal; 
+
+            .typewriter {
+                white-space: normal;
             }
 
             .contact-form input[type="text"],
@@ -839,7 +875,8 @@
                 box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
                 /* Adjust button width for smaller screens */
             }
-            .contact-form input[type="submit"]:hover{
+
+            .contact-form input[type="submit"]:hover {
                 background-color: #333;
                 /* Adjust button width for smaller screens */
             }
@@ -848,7 +885,8 @@
                 font-size: 14px;
                 /* Adjust font size for better readability */
             }
-/* 
+
+            /* 
             .pacme img {
                 width: 30vw;
                 height: auto;
@@ -895,15 +933,19 @@
             .project-widget:hover {
                 transform: translateY(-5px) scale(1.02) !important;
                 transition-duration: 0.242s !important;
+
                 /* cursor: url('media/cursor.cur'), auto !important; */
                 .cursor {
                     cursor: url("media/cursor.cur");
                 }
             }
+
             .project-widget:nth-child(2) {
-                order: 3; /* Place the second project widget last */
+                order: 3;
+                /* Place the second project widget last */
             }
-            #portfolio{
+
+            #portfolio {
                 padding-bottom: 20px;
             }
 
@@ -927,17 +969,20 @@
         }
 
         .darken {
-            filter: brightness(0.42); /* Adjust brightness to darken the section */
+            filter: brightness(0.42);
+            /* Adjust brightness to darken the section */
             opacity: 0.1;
         }
 
         nav a {
-            font-weight: normal; /* Set default font weight */
-        }
-        .bold {
-            font-weight: bold; /* Set font weight to bold */
+            font-weight: normal;
+            /* Set default font weight */
         }
 
+        .bold {
+            font-weight: bold;
+            /* Set font weight to bold */
+        }
     </style>
     <!-- Your JavaScript code -->
 
@@ -960,10 +1005,10 @@
             // Check if the device is mobile
             if (isMobileDevice()) {
                 // If it's a mobile device, start the animation immediately
-                document.getElementById("ab-cont").style.marginLeft='auto';
-                document.getElementById("ab-cont").style.margin='auto';
-                document.getElementById("ab-cont").style.paddingLeft='20px';
-                document.getElementById("ab-cont").style.paddingRight='20px';
+                document.getElementById("ab-cont").style.marginLeft = 'auto';
+                document.getElementById("ab-cont").style.margin = 'auto';
+                document.getElementById("ab-cont").style.paddingLeft = '20px';
+                document.getElementById("ab-cont").style.paddingRight = '20px';
                 startTypewriterMobile();
             }
 
@@ -1017,7 +1062,7 @@
             });
         });
     </script>
-<!--darken last section-->
+    <!--darken last section-->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const contactLink = document.querySelector('a[href="#contact"]');
@@ -1048,8 +1093,8 @@
 
             // Also make sure opacity is 1 when the contact section is viewed
             const contactSection = document.getElementById('contact');
-            const observer = new IntersectionObserver(function(entries, observer) {
-                entries.forEach(function(entry) {
+            const observer = new IntersectionObserver(function (entries, observer) {
+                entries.forEach(function (entry) {
                     if (entry.isIntersecting) {
                         backImg.style.opacity = '1';
                     } else {
@@ -1066,11 +1111,11 @@
         const homeLink = document.querySelector('a[href="#upArrow"]');
         document.addEventListener('DOMContentLoaded', function () {
             const sections = document.querySelectorAll('section');
-            sections.forEach(function(section) {
-                const observer = new IntersectionObserver(function(entries) {
-                    entries.forEach(function(entry) {
+            sections.forEach(function (section) {
+                const observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
                         const navLink = document.querySelector('a[href="#' + entry.target.id + '"]');
-                        window.addEventListener('scroll', function() {
+                        window.addEventListener('scroll', function () {
                             // if (isAtTopOfPage()) {
                             //     console.log('At the top of the page');
                             //     homeLink.classList.add('active');
@@ -1090,7 +1135,7 @@
             });
         });
     </script>
-    
+
     <style>
         .active {
             font-weight: bold;
@@ -1167,25 +1212,27 @@
         </div>
         <ul class="play-button">
             <li><a href="https://play.unity.com/mg/other/webgl-builds-398808" target="_blank">Play</a></li>
-        </ul>   
+        </ul>
     </section>
 
 
     <div class="back-img">
         <section id="contact">
-            <img src="media/space-dude.png" alt="space-man hovering, holding a mug of hot coffee" class="space-man-lower">
+            <img src="media/space-dude.png" alt="space-man hovering, holding a mug of hot coffee"
+                class="space-man-lower">
             <h2 class="wavy">Contact Me</h2>
             <!--<p>You can reach out to me through the following channels:</p>-->
             <ul class="contact-links">
                 <li>
-                    <a href="https://www.linkedin.com/in/tomer-zamir-" target="_blank"><img src="media/linkedin.png" alt="Linkedin" style="width: 40px; height: 40px; vertical-align: middle;"></a>
+                    <a href="https://www.linkedin.com/in/tomer-zamir-" target="_blank"><img src="media/linkedin.png"
+                            alt="Linkedin" style="width: 40px; height: 40px; vertical-align: middle;"></a>
                     <a href="https://github.com/tomerzamir" target="_blank" style="margin-left: 10px;">
                         <img src="media/github.png" alt="Github" style="width: 52px; height: 52px;">
                     </a>
                 </li>
             </ul>
-            
-            
+
+
             <div class="contact-form">
                 <!--<h3>Contact Form</h3>-->
                 <form action="https://formspree.io/f/xdoqdplj" method="POST">
@@ -1206,14 +1253,14 @@
             </span> -->
             <p>ⓒ Designed by Tomer Zamir</p>
         </footer>
-</div>
+    </div>
     <script>
         // Smooth scrolling effect when clicking on navigation links
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                const offset = 100; // Adjust this value as needed
+                const offset = 66; // Adjust this value as needed
                 const targetTop = target.getBoundingClientRect().top + window.pageYOffset;
                 const finalOffset = targetTop - offset;
                 window.scrollTo({
