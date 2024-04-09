@@ -1175,13 +1175,13 @@
                 // Once the user interacts, remove the event listeners to prevent unnecessary checks
                 document.removeEventListener('click', setInteracted);
                 document.removeEventListener('keydown', setInteracted);
-                document.removeEventListener('touchstart', setInteracted);
+                // document.removeEventListener('touchstart', setInteracted);
             }
 
             // Event listeners to track user interaction
             document.addEventListener('click', setInteracted);
             document.addEventListener('keydown', setInteracted);
-            document.addEventListener('touchstart', setInteracted);
+            // document.addEventListener('touchstart', setInteracted);
 
             // Function to check if the user has interacted with the webpage
             window.userHasInteracted = function() {
@@ -1210,12 +1210,12 @@
                             if (video.muted) {
                                 video.muted = false;
                                 if (video.paused) {
-                                video.play();
+                                    video.play();
                             }
-                            else{
-                                console.log("Video unmuted.");
-                                speakerIcon.src = "media/speaker.png";
-                            }
+                                else{
+                                    console.log("Video unmuted.");
+                                    speakerIcon.src = "media/speaker.png";
+                                }
                             }
                         }
                     }
