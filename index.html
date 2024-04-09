@@ -1099,25 +1099,25 @@
                     removeDarkenEffect();
                 });
 
-                widget.addEventListener('click', function () {
-                    var video = widget.querySelector('#vid');
-                    var speakerIcon = widget.querySelector('img');
+                // widget.addEventListener('click', function () {
+                //     var video = widget.querySelector('#vid');
+                //     var speakerIcon = widget.querySelector('img');
 
-                    if (video) {
-                        if (video.muted) {
-                            console.log("Video unmuted.");
-                            video.muted = false;
-                            if (video.paused) {
-                                video.play();
-                            }
-                            speakerIcon.src = "media/speaker.png";
-                        } else {
-                            console.log("Video muted.");
-                            video.muted = true;
-                            speakerIcon.src = "media/speaker-mute.png";
-                        }
-                    }
-                });
+                //     if (video) {
+                //         if (video.muted) {
+                //             console.log("Video unmuted.");
+                //             video.muted = false;
+                //             if (video.paused) {
+                //                 video.play();
+                //             }
+                //             speakerIcon.src = "media/speaker.png";
+                //         } else {
+                //             console.log("Video muted.");
+                //             video.muted = true;
+                //             speakerIcon.src = "media/speaker-mute.png";
+                //         }
+                //     }
+                // });
 
                 // Add touch events for mobile devices
                 widget.addEventListener('touchstart', function () {
@@ -1162,13 +1162,14 @@
 
             observer.observe(contactSection);
         });
-    </script>
-    <!--toggle audio-->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Flag to track if the user has interacted with the webpage
-            var hasInteracted = false;
 
+    </script>
+    <script>
+        // Flag to track if the user has interacted with the webpage
+        var hasInteracted = false;
+        var userMuted = false;
+
+        document.addEventListener('DOMContentLoaded', function () {
             // Function to set the hasInteracted flag to true
             function setInteracted() {
                 hasInteracted = true;
@@ -1184,9 +1185,36 @@
             // document.addEventListener('touchstart', setInteracted);
 
             // Function to check if the user has interacted with the webpage
-            window.userHasInteracted = function() {
+            window.userHasInteracted = function () {
                 return hasInteracted;
             };
+        });
+
+        document.addEventListener('click', function () {
+            var video = document.querySelector('#vid');
+            var speakerIcon = document.querySelector('#speaker');
+
+            if (video) {
+                if (video.muted) {
+                    console.log("Video unmuted.");
+                    video.muted = false;
+                    if (userMuted)
+                    {
+                        userMuted = false;
+                        console.log("user unmuted.");
+                    }
+                    if (video.paused) {
+                        video.play();
+                    }
+                    speakerIcon.src = "media/speaker.png";
+                } else {
+                    console.log("Video muted.");
+                    video.muted = true;
+                    userMuted = true;
+                    console.log("user muted.");
+                    speakerIcon.src = "media/speaker-mute.png";
+                }
+            }
         });
 
         document.addEventListener('DOMContentLoaded', function () {
@@ -1196,6 +1224,7 @@
 
             // Mute the video when the portfolio section is not in view
             const portfolioSection = document.getElementById('vid');
+
             const observer = new IntersectionObserver(function (entries, observer) {
                 entries.forEach(function (entry) {
                     if (!entry.isIntersecting) {
@@ -1204,15 +1233,14 @@
                             console.log("Video muted.");
                             speakerIcon.src = "media/speaker-mute.png";
                         }
-                    }
-                    else {
+                    } else {
                         if (window.userHasInteracted()) {
-                            if (video.muted) {
+                            if (video.muted && !userMuted) {
                                 video.muted = false;
                                 if (video.paused) {
                                     video.play();
-                            }
-                                else{
+                                }
+                                else {
                                     console.log("Video unmuted.");
                                     speakerIcon.src = "media/speaker.png";
                                 }
@@ -1224,8 +1252,9 @@
 
             observer.observe(portfolioSection);
         });
-
     </script>
+
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Find the video element
