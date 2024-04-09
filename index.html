@@ -1065,55 +1065,68 @@
         document.addEventListener('DOMContentLoaded', function () {
             var projectWidgets = document.querySelectorAll('.project-widget');
 
-            projectWidgets.forEach(function (widget) {
-                // Toggle darken effect on other widgets on mouse enter or touch start
-                widget.addEventListener('mouseenter', toggleDarken);
-                widget.addEventListener('touchstart', toggleDarken);
-
-                // Remove darken effect on other widgets on mouse leave
-                widget.addEventListener('mouseleave', removeDarken);
-
-                // Toggle video mute/unmute and change icon on click or touch
-                widget.addEventListener('click', toggleMute);
-                widget.addEventListener('touchstart', toggleMute);
-            });
-
-            function toggleDarken(event) {
-                var currentWidget = event.currentTarget;
-
+            function toggleDarkenEffect(widget) {
                 projectWidgets.forEach(function (otherWidget) {
-                    if (otherWidget !== currentWidget) {
+                    if (otherWidget !== widget) {
                         otherWidget.classList.add('other-widgets-darken');
                     }
                 });
             }
 
-            function removeDarken() {
-                projectWidgets.forEach(function (otherWidget) {
-                    otherWidget.classList.remove('other-widgets-darken');
+            function removeDarkenEffect() {
+                projectWidgets.forEach(function (widget) {
+                    widget.classList.remove('other-widgets-darken');
                 });
             }
 
-            function toggleMute(event) {
-                var widget = event.currentTarget;
-                var video = widget.querySelector('#vid');
-                var speakerIcon = widget.querySelector('img');
-
-                if (video) {
-                    if (video.muted) {
-                        console.log("Video unmuted.");
-                        video.muted = false;
-                        if (video.paused) {
-                            video.play();
-                        }
-                        speakerIcon.src = "media/speaker.png";
-                    } else {
-                        console.log("Video muted.");
-                        video.muted = true;
-                        speakerIcon.src = "media/speaker-mute.png";
-                    }
-                }
+            function isElementInViewport(el) {
+                var rect = el.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
             }
+
+            projectWidgets.forEach(function (widget) {
+                widget.addEventListener('mouseenter', function () {
+                    toggleDarkenEffect(widget);
+                });
+
+                widget.addEventListener('mouseleave', function () {
+                    removeDarkenEffect();
+                });
+
+                widget.addEventListener('click', function () {
+                    var video = widget.querySelector('#vid');
+                    var speakerIcon = widget.querySelector('img');
+
+                    if (video) {
+                        if (video.muted) {
+                            console.log("Video unmuted.");
+                            video.muted = false;
+                            if (video.paused) {
+                                video.play();
+                            }
+                            speakerIcon.src = "media/speaker.png";
+                        } else {
+                            console.log("Video muted.");
+                            video.muted = true;
+                            speakerIcon.src = "media/speaker-mute.png";
+                        }
+                    }
+                });
+            });
+
+            window.addEventListener('scroll', function () {
+                projectWidgets.forEach(function (widget) {
+                    if (!isElementInViewport(widget)) {
+                        widget.removeEventListener('mouseenter', toggleDarkenEffect);
+                        widget.removeEventListener('mouseleave', removeDarkenEffect);
+                    }
+                });
+            });
         });
     </script>
 
