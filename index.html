@@ -1209,8 +1209,13 @@
                         if (window.userHasInteracted()) {
                             if (video.muted) {
                                 video.muted = false;
+                                if (video.paused) {
+                                video.play();
+                            }
+                            else{
                                 console.log("Video unmuted.");
                                 speakerIcon.src = "media/speaker.png";
+                            }
                             }
                         }
                     }
