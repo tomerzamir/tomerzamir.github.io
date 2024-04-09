@@ -958,7 +958,8 @@
                 /* .cursor {
                     cursor: url("media/cursor.cur");
                 }
-            } */
+                */
+            } 
 
             .project-widget:nth-child(2) {
                 order: 3;
@@ -1060,10 +1061,11 @@
         });
 
     </script>
-
+<!--darken+volume-toggle-->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var projectWidgets = document.querySelectorAll('.project-widget');
+            var hoveredWidget = null; // Track the currently hovered widget
 
             function toggleDarkenEffect(widget) {
                 projectWidgets.forEach(function (otherWidget) {
@@ -1074,9 +1076,11 @@
             }
 
             function removeDarkenEffect() {
-                projectWidgets.forEach(function (widget) {
-                    widget.classList.remove('other-widgets-darken');
-                });
+                if (!hoveredWidget) {
+                    projectWidgets.forEach(function (widget) {
+                        widget.classList.remove('other-widgets-darken');
+                    });
+                }
             }
 
             function isElementInViewport(el) {
@@ -1091,10 +1095,12 @@
 
             projectWidgets.forEach(function (widget) {
                 widget.addEventListener('mouseenter', function () {
+                    hoveredWidget = widget;
                     toggleDarkenEffect(widget);
                 });
 
                 widget.addEventListener('mouseleave', function () {
+                    hoveredWidget = null;
                     removeDarkenEffect();
                 });
 
@@ -1116,15 +1122,6 @@
                             speakerIcon.src = "media/speaker-mute.png";
                         }
                     }
-                });
-
-                // Add touch events for mobile devices
-                widget.addEventListener('touchstart', function () {
-                    toggleDarkenEffect(widget);
-                });
-
-                widget.addEventListener('touchend', function () {
-                    removeDarkenEffect();
                 });
             });
 
