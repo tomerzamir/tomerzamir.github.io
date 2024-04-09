@@ -1117,6 +1117,15 @@
                         }
                     }
                 });
+
+                // Add touch events for mobile devices
+                widget.addEventListener('touchstart', function () {
+                    toggleDarkenEffect(widget);
+                });
+
+                widget.addEventListener('touchend', function () {
+                    removeDarkenEffect();
+                });
             });
 
             window.addEventListener('scroll', function () {
@@ -1128,6 +1137,7 @@
                 });
             });
         });
+
     </script>
 
     <!--darken last section-->
