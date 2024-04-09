@@ -748,9 +748,9 @@
             height: auto;
         }
 
-        .back-img:hover {
+        /* .back-img:hover {
             opacity: 1;
-        }
+        } */
 
         /* Adjustments for smaller windows */
         @media only screen and (min-width: 690px) {
@@ -1144,48 +1144,73 @@
     <!--darken last section-->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const contactLink = document.querySelector('a[href="#contact"]');
-            const portfolioLink = document.querySelector('a[href="#portfolio"]');
-            const backImg = document.querySelector('.back-img');
-
-            contactLink.addEventListener('click', function () {
-                // Toggle opacity on click
-                backImg.style.opacity = backImg.style.opacity === '1' ? '0.2' : '1';
-            });
-
-            portfolioLink.addEventListener('click', function () {
-                // Revert opacity on click
-                backImg.style.opacity = '0.2';
-            });
-        });
-    </script>
-    <!--toggle opacity of contact section-->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const contactLink = document.querySelector('a[href="#contact"]');
-            const backImg = document.querySelector('.back-img');
-
-            contactLink.addEventListener('click', function () {
-                // Toggle opacity on click
-                backImg.style.opacity = backImg.style.opacity === '1' ? '0.2' : '1';
-            });
-
-            // Also make sure opacity is 1 when the contact section is viewed
+            // Find the contact section
             const contactSection = document.getElementById('contact');
+
+            // Adjust opacity of back-img when contact section slides in and out of view
             const observer = new IntersectionObserver(function (entries, observer) {
                 entries.forEach(function (entry) {
                     if (entry.isIntersecting) {
-                        backImg.style.opacity = '1';
+                        // The contact section is in view, set opacity to 1
+                        document.querySelector('.back-img').style.opacity = '1';
                     } else {
-                        backImg.style.opacity = '0.2';
+                        // The contact section is not in view, set opacity to 0.2
+                        document.querySelector('.back-img').style.opacity = '0.2';
                     }
                 });
-            }, { threshold: 0.5 });
+            }, { threshold: 0.4 });
 
             observer.observe(contactSection);
         });
     </script>
-    <!--bolden nav bar a's-->
+    <!--toggle audio-->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Find the video element
+            const video = document.querySelector('#vid');
+            var speakerIcon = document.querySelector('#speaker');
+
+            // Mute the video when the portfolio section is not in view
+            const portfolioSection = document.getElementById('vid');
+            const observer = new IntersectionObserver(function (entries, observer) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) {
+                        if (!video.muted) {
+                            video.muted = true;
+                            console.log("Video muted.");
+                            speakerIcon.src = "media/speaker-mute.png";
+                        }
+                    }
+                });
+            }, { threshold: 0.4, rootMargin: "-50px 0px" }); // Adjust the threshold and rootMargin here
+
+            observer.observe(portfolioSection);
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Find the video element
+            const video = document.querySelector('#vid');
+            var speakerIcon = document.querySelector('#speaker');
+
+            // Mute the video when the portfolio section is not in view
+            const portfolioSection = document.getElementById('portfolio');
+            const observer = new IntersectionObserver(function (entries, observer) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) {
+                        if (!video.muted) {
+                            video.muted = true;
+                            console.log("Video muted.");
+                            speakerIcon.src = "media/speaker-mute.png";
+                        }
+                    }
+                });
+            }, { threshold: 0 });
+
+            observer.observe(portfolioSection);
+        });
+    </script>
+    //bolden nav bar as
     <script>
         const homeLink = document.querySelector('a[href="#upArrow"]');
         document.addEventListener('DOMContentLoaded', function () {
@@ -1270,7 +1295,7 @@
             </a>
             <div class="project-widget">
                 <div id="video_overlays">
-                    <img src="media/speaker-mute.png">
+                    <img src="media/speaker-mute.png" id="speaker">
                 </div>       
                 <video id="vid" width="100%" height="100%" autoplay muted loop src="media/snowboarding.mp4"></video>
                 <a href="https://github.com/tomerzamir/snowboarding-game" target="_blank" class="project-details">
