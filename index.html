@@ -676,8 +676,8 @@
 
         #video_overlays {
             position: absolute;
-            max-width: 30px;
-            max-height: 30px;
+            max-width: 20px;
+            max-height: 20px;
             z-index: 300000;
             bottom: 69px;
             left: 10px;
@@ -1062,53 +1062,59 @@
     </script>
 
     <script>
-document.addEventListener('DOMContentLoaded', function () {
-    var projectWidgets = document.querySelectorAll('.project-widget');
+        document.addEventListener('DOMContentLoaded', function () {
+            var projectWidgets = document.querySelectorAll('.project-widget');
 
-    projectWidgets.forEach(function (widget) {
-        // Toggle darken effect on other widgets on mouse enter
-        widget.addEventListener('mouseenter', function () {
-            projectWidgets.forEach(function (otherWidget) {
-                if (otherWidget !== widget) {
-                    otherWidget.classList.add('other-widgets-darken');
-                }
+            projectWidgets.forEach(function (widget) {
+                // Toggle darken effect on other widgets on mouse enter or touch start
+                widget.addEventListener('mouseenter', toggleDarken);
+                widget.addEventListener('touchstart', toggleDarken);
+
+                // Remove darken effect on other widgets on mouse leave
+                widget.addEventListener('mouseleave', removeDarken);
+
+                // Toggle video mute/unmute and change icon on click or touch
+                widget.addEventListener('click', toggleMute);
+                widget.addEventListener('touchstart', toggleMute);
             });
-        });
 
-        // Remove darken effect on other widgets on mouse leave
-        widget.addEventListener('mouseleave', function () {
-            projectWidgets.forEach(function (otherWidget) {
-                otherWidget.classList.remove('other-widgets-darken');
-            });
-        });
+            function toggleDarken(event) {
+                var currentWidget = event.currentTarget;
 
-        // Toggle video mute/unmute and change icon on click
-        widget.addEventListener('click', function () {
-            // Find the video element within the widget
-            var video = widget.querySelector('#vid');
-            var speakerIcon = widget.querySelector('img'); // Assuming the speaker icon is the first <img> child of the widget
-
-            if (video) {
-                if (video.muted) {
-                    console.log("Video unmuted.");
-                    video.muted = false;
-                    // Start playing the video if it's not already playing
-                    if (video.paused) {
-                        video.play();
+                projectWidgets.forEach(function (otherWidget) {
+                    if (otherWidget !== currentWidget) {
+                        otherWidget.classList.add('other-widgets-darken');
                     }
-                    // Change the speaker icon to unmuted state
-                    speakerIcon.src = "media/speaker.png";
-                } else {
-                    console.log("Video muted.");
-                    video.muted = true;
-                    // Change the speaker icon to muted state
-                    speakerIcon.src = "media/speaker-mute.png";
+                });
+            }
+
+            function removeDarken() {
+                projectWidgets.forEach(function (otherWidget) {
+                    otherWidget.classList.remove('other-widgets-darken');
+                });
+            }
+
+            function toggleMute(event) {
+                var widget = event.currentTarget;
+                var video = widget.querySelector('#vid');
+                var speakerIcon = widget.querySelector('img');
+
+                if (video) {
+                    if (video.muted) {
+                        console.log("Video unmuted.");
+                        video.muted = false;
+                        if (video.paused) {
+                            video.play();
+                        }
+                        speakerIcon.src = "media/speaker.png";
+                    } else {
+                        console.log("Video muted.");
+                        video.muted = true;
+                        speakerIcon.src = "media/speaker-mute.png";
+                    }
                 }
             }
         });
-    });
-});
-
     </script>
 
     <!--darken last section-->
