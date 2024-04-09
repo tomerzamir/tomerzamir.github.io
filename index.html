@@ -1190,33 +1190,34 @@
             };
         });
 
-        document.addEventListener('click', function () {
+        document.addEventListener('click', function (event) {
             var video = document.querySelector('#vid');
             var speakerIcon = document.querySelector('#speaker');
 
-            if (video) {
-                if (video.muted) {
-                    console.log("Video unmuted.");
-                    video.muted = false;
-                    if (userMuted)
-                    {
-                        userMuted = false;
-                        console.log("user unmuted.");
+            // Check if the click event occurred on the #vid element
+            if (event.target.id === 'vid') {
+                if (video) {
+                    if (video.muted) {
+                        console.log("Video unmuted.");
+                        video.muted = false;
+                        if (userMuted) {
+                            userMuted = false;
+                            console.log("User unmuted.");
+                        }
+                        if (video.paused) {
+                            video.play();
+                        }
+                        speakerIcon.src = "media/speaker.png";
+                    } else {
+                        console.log("Video muted.");
+                        video.muted = true;
+                        userMuted = true;
+                        console.log("User muted.");
+                        speakerIcon.src = "media/speaker-mute.png";
                     }
-                    if (video.paused) {
-                        video.play();
-                    }
-                    speakerIcon.src = "media/speaker.png";
-                } else {
-                    console.log("Video muted.");
-                    video.muted = true;
-                    userMuted = true;
-                    console.log("user muted.");
-                    speakerIcon.src = "media/speaker-mute.png";
                 }
             }
         });
-
         document.addEventListener('DOMContentLoaded', function () {
             // Find the video element
             const video = document.querySelector('#vid');
