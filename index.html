@@ -1166,6 +1166,30 @@
     <!--toggle audio-->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Flag to track if the user has interacted with the webpage
+            var hasInteracted = false;
+
+            // Function to set the hasInteracted flag to true
+            function setInteracted() {
+                hasInteracted = true;
+                // Once the user interacts, remove the event listeners to prevent unnecessary checks
+                document.removeEventListener('click', setInteracted);
+                document.removeEventListener('keydown', setInteracted);
+                document.removeEventListener('touchstart', setInteracted);
+            }
+
+            // Event listeners to track user interaction
+            document.addEventListener('click', setInteracted);
+            document.addEventListener('keydown', setInteracted);
+            document.addEventListener('touchstart', setInteracted);
+
+            // Function to check if the user has interacted with the webpage
+            window.userHasInteracted = function() {
+                return hasInteracted;
+            };
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
             // Find the video element
             const video = document.querySelector('#vid');
             var speakerIcon = document.querySelector('#speaker');
@@ -1181,11 +1205,21 @@
                             speakerIcon.src = "media/speaker-mute.png";
                         }
                     }
+                    else {
+                        if (window.userHasInteracted()) {
+                            if (video.muted) {
+                                video.muted = false;
+                                console.log("Video unmuted.");
+                                speakerIcon.src = "media/speaker.png";
+                            }
+                        }
+                    }
                 });
             }, { threshold: 0.4, rootMargin: "-50px 0px" }); // Adjust the threshold and rootMargin here
 
             observer.observe(portfolioSection);
         });
+
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
