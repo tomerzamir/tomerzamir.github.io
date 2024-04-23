@@ -1369,6 +1369,44 @@
             window.scrollTo({ top: 0, behavior: "smooth" });
         }
     </script>
+    <script>
+        // Array of quotes with authors
+        var quotes = [
+            {
+                quote: "Intellectual growth should commence at birth and cease only at death.",
+                author: "Albert Einstein"
+            },
+            {
+                quote: "The only way to do great work is to love what you do.",
+                author: "Steve Jobs"
+            },
+            {
+                quote: "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+                author: "Winston Churchill"
+            },
+            {
+                quote: "We can only see a short distance ahead, but we can see plenty there that needs to be done.",
+                author: "Alan Turing"
+            }
+            // Add more quotes with authors as needed
+        ];
+
+        // Function to display a random quote
+        function displayRandomQuote() {
+            var randomIndex = Math.floor(Math.random() * quotes.length);
+            var randomQuote = quotes[randomIndex];
+            var quoteElement = document.getElementById("quote");
+            var authorElement = document.getElementById("author");
+
+            // Update quote and author in HTML
+            quoteElement.innerHTML = '<span class="quote-mark">“</span>' + randomQuote.quote + '<span class="quote-mark">„</span>';
+            authorElement.textContent = "- " + randomQuote.author;
+        }
+
+        // Display a random quote when the page loads
+        window.onload = displayRandomQuote;
+    </script>
+
 
     <!-- <section class="parallax"></section> -->
     <section class="parallax"></section>
@@ -1386,17 +1424,19 @@
                 <li><a href="https://drive.google.com/file/d/1NG0osn0ED9AnCbusHneM5rcCYBZMq1Az/view?usp=sharing"
                         target="_blank">my cv</a></li>
             </ul>
-            <div class="quote-container">
+            <!-- <div class="quote-container">
                 <blockquote class="quote"><span class="quote-mark">“</span>Once you stop learning, you start dying.<span
                         class="quote-mark">„</span></blockquote>
                 <p class="quote-author"></p>
-            </div>
-
+            </div> -->
         </div>
         <img src="media/space-dude.png" alt="space-man hovering, holding a mug of hot coffee" class="space-man">
         <img src="media/spidey.gif" alt="spider-man coming sliding down from the banner shooting  webs" class="spidey">
+        <div class="quote-container">
+            <blockquote class="quote" id="quote"></blockquote>
+            <p class="quote-author" id="author"></p>
+        </div>
     </section>
-
     <section id="portfolio">
         <h2 class="wavy">My Recent Work</h2>
         <div class="projects-container" id="projects">
