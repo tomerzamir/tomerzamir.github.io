@@ -1208,29 +1208,29 @@
     </script>
     <script>
         // Flag to track if the user has interacted with the webpage
-        var hasInteracted = false;
-        var userMuted = false;
+        //var hasInteracted = false;
+        var userMuted = true;
 
-        document.addEventListener('DOMContentLoaded', function () {
-            // Function to set the hasInteracted flag to true
-            function setInteracted() {
-                hasInteracted = true;
-                // Once the user interacts, remove the event listeners to prevent unnecessary checks
-                document.removeEventListener('click', setInteracted);
-                document.removeEventListener('keydown', setInteracted);
-                // document.removeEventListener('touchstart', setInteracted);
-            }
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     // Function to set the hasInteracted flag to true
+        //     function setInteracted() {
+        //         hasInteracted = true;
+        //         // Once the user interacts, remove the event listeners to prevent unnecessary checks
+        //         document.removeEventListener('click', setInteracted);
+        //         document.removeEventListener('keydown', setInteracted);
+        //         // document.removeEventListener('touchstart', setInteracted);
+        //     }
 
-            // Event listeners to track user interaction
-            document.addEventListener('click', setInteracted);
-            document.addEventListener('keydown', setInteracted);
-            // document.addEventListener('touchstart', setInteracted);
+        //     // Event listeners to track user interaction
+        //     document.addEventListener('click', setInteracted);
+        //     document.addEventListener('keydown', setInteracted);
+        //     // document.addEventListener('touchstart', setInteracted);
 
-            // Function to check if the user has interacted with the webpage
-            window.userHasInteracted = function () {
-                return hasInteracted;
-            };
-        });
+        //     // Function to check if the user has interacted with the webpage
+        //     window.userHasInteracted = function () {
+        //         return hasInteracted;
+        //     };
+        // });
 
         document.addEventListener('click', function (event) {
             var video = document.querySelector('#vid');
@@ -1276,19 +1276,20 @@
                             console.log("Video muted.");
                             speakerIcon.src = "media/speaker-mute.png";
                         }
-                    } else {
-                        if (window.userHasInteracted()) {
-                            if (video.muted && !userMuted) {
-                                video.muted = false;
-                                if (video.paused) {
-                                    video.play();
-                                }
-                                else {
-                                    console.log("Video unmuted.");
-                                    speakerIcon.src = "media/speaker.png";
-                                }
+                    } 
+                    else {
+                        // if (window.userHasInteracted()) {
+                        if (video.muted && !userMuted) {
+                            video.muted = false;
+                            if (video.paused) {
+                                video.play();
+                            }
+                            else {
+                                console.log("Video unmuted.");
+                                speakerIcon.src = "media/speaker.png";
                             }
                         }
+                        //}
                     }
                 });
             }, { threshold: 0.4, rootMargin: "-50px 0px" }); // Adjust the threshold and rootMargin here
